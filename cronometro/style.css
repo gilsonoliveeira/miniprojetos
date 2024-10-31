@@ -1,0 +1,72 @@
+@charset "UTF-8";
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    width: 95vw;
+    height: 95vh;
+    background-color: #774936;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    flex-direction: column;
+    
+}
+
+#container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 40%;
+    height: 50%;
+    background-color: #FFCF9C;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    background-image: url('./img/amadeirado.jpg');
+}
+
+h1, p {
+    font-size: 3em;
+    color: #613b2b;
+    margin-bottom: 30px;
+
+}
+
+#botoes{
+    display: flex;
+}
+
+#start, #stop, #reset {
+    width: 100px;
+    height: 40px;
+    margin: 10px;
+    background-color: #613b2b;
+    color: white;
+    border-radius: 10px;
+    
+}
+
+#start:hover, #stop:hover, #reset:hover {
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.568);
+    color: black;
+    transition: all 0.5s;
+}
+
+@media screen and (max-width: 1000px){
+
+    #container{
+        width: 400px
+
+    }
+
+}
+
