@@ -9,6 +9,7 @@ body {
     width: 100vw;
     height: 100vh;
     background-color: #774936;
+    background-image: url(img/background.jpg);
 }
 
 main {
@@ -20,62 +21,77 @@ main {
     
 }
 
+ul {
+    list-style: decimal;
+}
+
+
+
 #container{
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    width: 40%;
-    height: 300px;
-    background-color: #FFCF9C;
+    width: 500px;
+    height: auto auto;
+    background-color: rgba(255, 255, 255, 0.836);
     border-radius: 10px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
-    background-image: url('./img/amadeirado.jpg');
+    box-shadow: 1px 1px 10px 5px #a12777;
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: hidden;
 }
+
 
 h1, p {
     font-size: 3em;
-    color: #613b2b;
+    color: #00163D;
     margin-bottom: 30px;
-    
-    
 
 }
+
+li {
+    color: #00163D;
+    font-size: 1.5em;
+}
+
 
 #botoes{
     display: flex;
 }
 
-#display{
-    background-color: rgba(240, 248, 255, 0.596);
-    border-radius: 10px;
-    
-}
-
-#start, #stop, #reset {
+#start, #stop, #reset, #savetime {
     width: 100px;
     height: 40px;
     margin: 10px;
-    background-color: #613b2b;
+    margin-bottom: 20px;
+    background-color: #882867;
     color: white;
     border-radius: 10px;
+    border: none;
     
 }
 
-#start:hover, #stop:hover, #reset:hover {
+#start:hover, #stop:hover, #reset:hover, #savetime:hover {
     cursor: pointer;
     background-color: rgba(255, 255, 255, 0.568);
     color: black;
-    transition: all 0.5s;
+    transition: all 1s;
 }
 
 @media screen and (max-width: 1000px){
 
-    #container{
-        width: 400px
+    #start, #stop, #reset, #savetime {
+        width: 70px;
+        height: 40px;
+        margin: 10px;
         
-
     }
 
-}
+    #container {
+        width: auto;
+    }
 
+
+
+}

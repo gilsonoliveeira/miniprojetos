@@ -1,6 +1,9 @@
 let milisegundos = 0
 let timer
 let isrunning = false
+const timelist = document.getElementById('timeList') // lista
+
+document.getElementById('savetime').disabled = true
 
 
 function formatoTimer(milisegundos) {
@@ -14,8 +17,6 @@ function formatoTimer(milisegundos) {
 
 }
 
-
-
 function updateDisplay() {
     document.getElementById('display').innerText = formatoTimer(milisegundos)
 
@@ -26,12 +27,16 @@ function start() {
     if (!isrunning) {
         isrunning = true
         document.getElementById('start').disabled = true
+        document.getElementById('savetime').disabled = false
 
         timer = setInterval(() => {
             milisegundos += 10
             updateDisplay()
         }, 10)
     }
+
+
+
 }
 
 function pause() {
@@ -47,9 +52,27 @@ function reset() {
     milisegundos = 0
     updateDisplay()
     document.getElementById('start').disabled = false
+    timelist.innerText = ''
+
 
 }
+
+
+function volta() {
+    const timeText = document.getElementById('display').innerText
+    const newTime = document.createElement('li')
+    newTime.innerText = timeText
+    timelist.appendChild(newTime)
+    
+
+}
+
+
+
+
+
 
 document.getElementById('start').addEventListener('click', start)
 document.getElementById('stop').addEventListener('click', pause)
 document.getElementById('reset').addEventListener('click', reset)
+document.getElementById('savetime').addEventListener('click',volta)
