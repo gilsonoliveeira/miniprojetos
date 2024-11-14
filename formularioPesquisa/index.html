@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário de Satisfação</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <h1 id="title"> Pesquisa de Satisfação</h1>
+        <p id="description">Obrigado por reservar um tempo para responder nossa pesquisa </p>
+    </header>
+    <main>
+        <form id="survey-form">
+            <label id="name-label" for="name"> Nome: </label>
+            <input id="name" type="text" placeholder="Digite seu nome" required></input>
+            <label id="email-label" for="email"> Email: </label>
+            <input id="email" type="email" placeholder="Digite seu email" required></input>
+            <label id="number-label" for="number"> Idade(opcional)</label>
+            <input id="number" type="number" min="16" max="100" placeholder="Idade"></input>
+            <p>O que você mais gosta de assistir ?</p>
+            <select class="dropdown">
+                <option value="option0">Selecione</option>
+                <option value="option1">Futebol</option>
+                <option value="option2">Novelas</option>
+                <option value="option3">Filmes</option>
+                <option value="option4">Séries</option>
+            </select>
+            <div id="radio">
+                <p>Você recomendaria nosso aplicativo para um amigo? </p>
+                <div class="inline-option">
+                    <input type="radio" value="escolha" name="escolha">Com certeza!</input>
+                </div>
+                <div class="inline-option">
+                    <input type="radio" value="escolha" name="escolha">Talvez</input>
+                </div>
+                <div class="inline-option">
+                    <input type="radio" value="escolha" name="escolha">Não recomendaria</input>
+                </div>
+            </div>
+            <p>Na sua opinião,quanto o melhor recurso que nosso aplicativo oferece?</p>
+            <select class="dropdown">
+                <option value="option1">Selecione</option>
+                <option value="option2">Gravação de programas</option>
+                <option value="option3">Avaliação de filmes e séries</option>
+                <option value="option4">Reprises de programas</option>
+            </select>
+            <p>O que você gostaria de ver melhorado? (Marque todas as opções aplicáveis)</p>
+            <div class="inline-option">
+                <input type="checkbox" value="escolha2" name="escolha">Player</input>
+            </div>
+            <div class="inline-option">
+                <input type="checkbox" value="escolha2" name="escolha">Catálogo-Filmes</input>
+            </div>
+            <div class="inline-option">
+                <input type="checkbox" value="escolha2" name="escolha">Catálogo-Séries</input>
+            </div>
+            <div class="inline-option">
+                <input type="checkbox" value="escolha2" name="escolha">Funcionalidades do App</input>
+            </div>
+            <p>
+                Algum comentário ou sugestão?
+            </p>
+            <textarea placeholder="Insira seu comentário aqui..."></textarea>
+            <br>
+            <input type="submit" id="submit"></input>
+        </form>
+    </body>
+    <footer>
+        Desenvolvido por <a href="https://www.instagram.com/gilsonoliveeira" target="_blank"><strong>Gilson Oliveira</strong></a>
+    </footer>
+</main>
+</html>
