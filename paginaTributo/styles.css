@@ -20,6 +20,25 @@ main {
 
 }
 
+audio {
+    display: flex;
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 20px;
+    width: 20%;
+
+}
+
+#audio.div {
+    width: 100%;
+    display: flex;
+    position: relative;
+    
+    
+
+}
+
 h1 {
     text-align: center;
     font-size: 40px;
@@ -62,15 +81,13 @@ strong {
     
 }
 
-img {
-    padding-top: 20px;
-    display: block;
-}
 
 #image {
     max-width: 100%;
     height: auto;
     margin: auto;
+    padding-top: 20px;
+    display: block;
 }
 
 #tribute-info {
@@ -86,6 +103,12 @@ img {
     font-size: 20px;
     margin-top: 60px;
     margin-bottom: 60px;
+    background-color: #D7D7D7;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 3px;
+    border-radius: 5px;
 }
 
 ul > li {
@@ -98,3 +121,84 @@ ul > li {
     font-style: italic;
     margin: 50px;
 }
+
+#tributeWiki {
+    width: 100%;
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1.2em;
+    font-weight: 600;
+    padding-bottom: 50px;
+   
+}
+
+#tribute-link {
+    text-decoration: none;
+    color: darkcyan;
+    cursor: pointer;
+
+}
+
+#tribute-link:hover {
+    color: brown
+}
+
+
+.container-slide{
+    width: 50vw;
+    height: 50vh;
+    background-color: blue;
+    display: flex;
+    margin: 10vh auto;
+    justify-content: space-between;
+    box-shadow: 0 10px 10px #00000088;
+    border: 1px solid black;
+
+}
+
+.container-items {
+    display: flex;
+    position: absolute;
+    width: 50vw;
+    height: 50vh;
+    overflow: hidden;
+}
+
+.item { 
+
+    width: 50vw;
+    height: 50vh;
+    transition: all 1s;
+    
+}
+
+.item:first-child {
+    margin-left: -100%;
+
+}
+
+.item img {
+    width: 50vw;
+    height: 50vh;
+    
+}
+
+.action-button {
+    font: bold 30px sans-serif;
+    display: flex;
+    z-index: 1;
+    align-items: center;
+    justify-content: center;
+    user-select: none;
+    width: 50px;
+    color: #00000000;
+}
+
+.action-button:hover {
+    background-color: rgba(0, 0, 0, 0.548);
+    color: white;
+    border-color: 10px;
+    transition: all 1s;
+    cursor: pointer;
+}
+
