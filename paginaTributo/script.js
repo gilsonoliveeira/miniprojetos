@@ -19,6 +19,7 @@ const loadimages = (images,container) => {
 
 loadimages(images,containerItems);
 
+
 let items = document.querySelectorAll(".item")
 
 const previous = () => {

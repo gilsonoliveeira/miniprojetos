@@ -35,7 +35,6 @@ audio {
     display: flex;
     position: relative;
     
-    
 
 }
 
@@ -43,7 +42,7 @@ h1 {
     text-align: center;
     font-size: 40px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    margin: 20px;
+    margin: 50px;
     margin-bottom: 5px;
 }
 
@@ -165,10 +164,9 @@ ul > li {
 }
 
 .item { 
-
     width: 50vw;
     height: 50vh;
-    transition: all 1s;
+    transition: all 1s ease; /* Transição suave ao trocar os itens */
     
 }
 
@@ -186,13 +184,15 @@ ul > li {
 .action-button {
     font: bold 30px sans-serif;
     display: flex;
-    z-index: 1;
     align-items: center;
     justify-content: center;
     user-select: none;
     width: 50px;
-    color: #00000000;
+    color: white;
+    opacity: 1; /* Garantir que as setas sejam sempre visíveis */
+    z-index: 10; /* Garante que as setas fiquem acima das imagens */
 }
+
 
 .action-button:hover {
     background-color: rgba(0, 0, 0, 0.548);
