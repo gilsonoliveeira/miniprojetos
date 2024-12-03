@@ -5,11 +5,15 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+   
 }
 
 body {
     width: 100%;
+    background-color: #EEEEEE;
 }
+
+
 
 #header-img {
     width: 200px;
@@ -22,17 +26,20 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-
+    position: fixed;
     width: 100%;
     height: 100px;
+    background-color: #EEEEEE;
+    
 }
+
+
 
 #nav-bar {
     display: flex;
     gap: 60px;
     position: absolute;
     right: 80px;
-
 }
 
 .nav-link {
@@ -40,12 +47,31 @@ header {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     text-decoration: none;
     color: black;
+    transition: background-color 0.3s ease transform 0.3s ease;
+    padding: 3px;
+    border-radius: 5px;
 }
+
+.nav-link:hover {
+    background-color: #F1C40F;
+    transform: scale(1.1);
+}
+
+#form {
+    padding-top: 130px;
+    padding-bottom: 15px;
+    
+}
+
+#email {
+    padding-left: 5px;
+    font-size: 15px;
+}
+
 
 #title-form {
     width: 100%;
     text-align: center;
-    margin-top: 20px;
     margin-bottom: 20px;
 }
 
@@ -63,10 +89,22 @@ header {
     height: 30px;
     margin-top: 15px;
     margin-bottom: 15px;
-    background-color: yellow;
+    background-color: #F1C40F;
     border: none;
     font-size: 1.2em;
     font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    border-radius: 5px;
+}
+
+#submit:hover {
+    transform: scale(1.1);
+
+}
+
+.container, .video, #window-prices {
+    padding-top: 100px; /* Adiciona espaçamento para o cabeçalho fixo */
 }
 
 .container {
@@ -74,7 +112,7 @@ header {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: 30px;
+    margin-top: 10px;
     margin-bottom: 70px;
     
     
@@ -94,7 +132,6 @@ header {
 
 .info-box .text {
     max-width: 600px;
-    font-family: s;
 }
 
 .info-box h3 {
@@ -116,6 +153,126 @@ header {
     justify-content: center;
 }
 
+#window-prices {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    justify-items: center;
+    gap: 15px;
+    margin-top: 120px;
+    margin-bottom: 120px;
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+    
+    
+}
+
+.grid {
+    border: 1px solid black;
+    height: 350px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    grid-template-rows: auto auto 1fr auto;
+
+}
 
 
+#nameGuitar {
+    width: 100%;
+    background-color: #DDDDDD ;
+    padding: 10px;
+    font-family: sans-serif;
+    text-wrap: nowrap;
+}
 
+#prices {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-weight: 800;
+    font-size: 1.5em;
+}
+
+#descrition {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 15px;
+    overflow: hidden;
+
+}
+
+#button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 130px;
+    background-color: #F1C40F;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    font-size: 20px;
+    margin: auto auto 20px auto;
+    align-self: flex-end;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+   
+}
+
+#button:hover {
+    background-color: #DDDDDD;
+    transform: scale(1.1);
+     
+}
+
+footer {
+    background-color: #DDDDDD ;
+    width: 100%;
+    padding: 30px;
+    display: flex;
+    align-items: end;
+    justify-content: end;
+    flex-direction: column;
+    row-gap: 10px ;
+
+}
+
+footer a {
+    padding: 10px;
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 500;
+    font-size: 17px;
+
+}
+
+#identification {
+    color: rgb(99, 98, 98);
+    font-size: 15px;
+}
+
+
+@media (max-width: 768px) {
+    #window-prices {
+        grid-template-columns: 1fr;  /* 1 coluna para telas pequenas */
+        width: 90%;  /* Aumenta a largura do grid */
+    }
+
+    .video {
+        margin: 10px;
+    }
+
+    #nav-bar {
+        
+    }
+
+
+}
+
+/* Para telas médias (menos de 900px), vai ter 2 colunas */
+@media (max-width: 900px) {
+    #window-prices {
+        grid-template-columns: repeat(1, 1fr);  /* 2 colunas para telas médias */
+        width: 85%;  /* Ajusta a largura para telas médias */
+    }
+}

@@ -1,81 +1,96 @@
 <!DOCTYPE html>
-<html lang="pt-br">
-
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title id="title"></title>
+    <title id="title">Music Play Shop Guitar</title>
     <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
     <main>
         <header id="header">
-            <img src="img/9969894.jpg" id="header-img"></img>
+            <img src="img/9969894.png" id="header-img"></img>
             <nav id="nav-bar">
-                <a href="#" class="nav-link">Features</a>
-                <a href="#" class="nav-link">How it Works</a>
-                <a href="#" class="nav-link">Pricing</a>
+                <a href="#container" class="nav-link">Features</a>
+                <a href="#video" class="nav-link">How it Works</a>
+                <a href="#window-prices" class="nav-link">Pricing</a>
             </nav>
+            <img id="menu-responsive" src="img/menu.png.png" alt="menu.png" width="50px">
         </header>
-        <h2 id="title-form">Handcrafted, home-made masterpieces</h2>
         <form id="form" action="https://www.freecodecamp.com/email-submit">
+            <h2 id="title-form">Handcrafted, home-made masterpieces</h2>
             <input id="email" type="email" placeholder="Enter your email address" name="email"></input>
-            <input id="submit" type="submit"></input>
+            <input id="submit" type="submit" value="Subscribe"></input>
         </form>
-        <div class="container">
-            <div class="info-box">
+        <div class="container" id="container">
+            <div class="info-box" id="info-box">
                 <img src="img/rb_490.png" width="80px"></img>
                 <div class="text">
                     <h2>Premium Materials</h2>
-                    <p>Our guitars use the shiniest brass which is sourced locally. This will increase the longevity
-                        of your
-                        purchase.</p>
+                    <p>"Our guitars are crafted with high-quality materials, ensuring not only incredible sound but also durability and resilience. Each model is meticulously designed to deliver a unique tone, perfect for musicians seeking performance and style in every chord."</p>
                 </div>
             </div>
             <div class="info-box">
                 <img src="img/rb_490.png" width="80px"></img>
                 <div class="text">
                     <h2>Fast Shipping</h2>
-                    <p>We make sure you recieve your trombone as soon as we have finished making it. We also provide
-                        free
-                        returns if you are not satisfied.</p>
+                    <p>We ensure that your guitar reaches you as soon as it’s ready. Plus, we offer free returns if you're not completely satisfied with your purchase."</p>
                 </div>
             </div>
             <div class="info-box">
                 <img src="img/rb_490.png" width="80px"></img>
                 <div class="text">
                     <h2>Quality Assurance</h2>
-                    <p>For every purchase you make, we will ensure there are no damages or faults and we will check and
-                        test the pitch of your instrument.</p>
+                    <p>"With every purchase, we guarantee that your guitar will arrive in perfect condition, free of any defects. We also thoroughly inspect and test the pitch to ensure top-notch quality."</p>
                 </div>
             </div>
         </div>
 
-        <div class="video">
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/SKwssKDQKmM?si=nOh4xwMf9UWF2G1C"
+        <div class="video" id="video">
+            <iframe width="780" height="435" src="https://www.youtube.com/embed/SKwssKDQKmM?si=nOh4xwMf9UWF2G1C"
                 title="YouTube video player" frameborder="0"
                 allow="accelerometer; autoplay; clipboard-write; gyroscope; picture-in-picture; web-share"
                 referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
         </div>
 
-        <div id="prices">
-            <div>
-                <h3>Rickenbacker 300 Series</h3>
+        <div id="window-prices">
+            <div class="grid">
+                <h3 id="nameGuitar">Rickenbacker 300 Series</h3>
+                <p id="prices"> $600</p>
+                <p id="descrition">"Known for its bright tone and iconic design, the Rickenbacker 300 Series is a classic choice among musicians seeking a unique sound. Ideal for styles like rock and indie, it blends tradition with innovation."</p>
+                <br>
+                <button id="button" type="submit">Buy <img src="img/shopping_cart_25dp_000000_FILL0_wght400_GRAD0_opsz24.png" alt="cart/png" width="30px"></button>
+                
+            </div>
+
+            <div class="grid">
+                <h3 id="nameGuitar">Fender Stratocaster</h3>
+                <p id="prices"> $900</p>
+                <p id="descrition">"The Fender Stratocaster is one of the most famous models in the world, offering versatile sound and exceptional comfort. Perfect for expressive solos and crystal-clear chords, it is a guitar that adapts to various musical genres."</p>
+                <button id="button" type="submit">Buy <img src="img/shopping_cart_25dp_000000_FILL0_wght400_GRAD0_opsz24.png" alt="cart/png" width="30px"></button>
+                
 
             </div>
 
-            <div>
-
-            </div>
-
-            <div>
-
+            <div class="grid">
+                <h3 id="nameGuitar">Les Paul</h3>
+                <p id="prices"> $1200</p>
+                <p id="descrition">"With rich tones and legendary sustain, the Les Paul is one of the most sought-after guitars by rock and blues musicians. Its robust look and elegant finish make it an essential piece in any collection, delivering exceptional sound both on stage and in the studio."</p>
+                
+                <button id="button"  type="submit">Buy <img src="img/shopping_cart_25dp_000000_FILL0_wght400_GRAD0_opsz24.png" alt="cart/png" width="30px"></button>
             </div>
         </div>
-
-
+        <footer>
+            <div class="info-footer">
+                <a href="#">Privacy</a>
+                <a href="#">Terms</a>
+                <a href="#">Contact</a>
+            </div>
+            <p id="identification">Copyright 2024, Original Gilson Oliveira</p>
+        </footer>
     </main>
+    <script src="script.js"></script>
+
 </body>
 
 </html>
