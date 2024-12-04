@@ -34,13 +34,35 @@ header {
 }
 
 
-
 #nav-bar {
+    max-width: 1280px;
+    height: 70px;
     display: flex;
-    gap: 60px;
-    position: absolute;
-    right: 80px;
+    justify-content: space-between;
+
 }
+
+#nav-list {
+    list-style: none;
+    display: flex;
+    gap: 32px;
+    padding-right: 50px;
+    justify-content: center;
+    align-items: center;
+
+}
+
+#nav-list a {
+    font-size: 18px;
+    padding-block: 16px;
+    
+}
+
+#menu-responsive {
+    display: none;
+    cursor: pointer;
+}
+
 
 .nav-link {
     font-size: 1.2em;
@@ -58,9 +80,8 @@ header {
 }
 
 #form {
-    padding-top: 130px;
-    padding-bottom: 15px;
-    
+    padding-top: 200px;
+   
 }
 
 #email {
@@ -163,8 +184,15 @@ header {
     width: 60%;
     margin-left: auto;
     margin-right: auto;
-    
-    
+
+}
+
+#container .info-box:nth-child(1),#container .info-box:nth-child(2),#container .info-box:nth-child(3) {
+    transition: transform 0.5s 0.2s;
+}
+
+#container .info-box:nth-child(1):hover,#container .info-box:nth-child(2):hover,#container .info-box:nth-child(3):hover  {
+    transform: scale(1.1); /* Exemplo de transformação no hover */
 }
 
 .grid {
@@ -252,7 +280,7 @@ footer a {
 }
 
 
-@media (max-width: 768px) {
+@media (max-width: 750px) {
     #window-prices {
         grid-template-columns: 1fr;  /* 1 coluna para telas pequenas */
         width: 90%;  /* Aumenta a largura do grid */
@@ -262,10 +290,58 @@ footer a {
         margin: 10px;
     }
 
-    #nav-bar {
+
+    #nav-list {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: #F1C40F;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        gap: 0;
+        clip-path: circle(100px at 90% -20%);
+        transition: 1s ease-out;
+        pointer-events: none;
         
     }
 
+    #nav-list a {
+        font-size: 24px;
+        opacity: 0;
+    }
+
+    #nav-list li:nth-child(1) a {
+        transition: 0.5s 0.2s;
+
+    }
+
+    #nav-list li:nth-child(2) a {
+        transition: 0.5s 0.4s;
+        
+    }
+
+    #nav-list li:nth-child(3) a {
+        transition: 0.5s 0.6s;
+        
+    }
+
+    #menu-responsive {
+        display: block;
+        z-index: 1;
+        margin-right: 10px;
+    }
+
+    #nav-bar.active #nav-list {
+        clip-path: circle(1500px at 90% -15%);
+        pointer-events: all;
+    }
+    
+    #nav-bar.active #nav-list a {
+        opacity: 1;
+    }
 
 }
 

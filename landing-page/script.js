@@ -1,8 +1,16 @@
-let menuToggle = document.getElementById("menu-responsive");
-let navLinks = document.getElementById("nav-bar");
-let mainContent = document.querySelector("main"); // Seleciona o conteúdo principal
+const hamburguer = document.getElementById("menu-responsive");
+const nav = document.getElementById("nav-bar");
+const menuOptions = document.querySelectorAll("#nav-bar a")
+const navList = document.getElementById("nav-list")
 
-menuToggle.addEventListener("click", () => {
-    navLinks.classList.toggle("nav-active");
-    mainContent.classList.toggle("menu-active");
+hamburguer.addEventListener("click", () =>
+    nav.classList.toggle("active")
+
+);
+
+menuOptions.forEach(option => { 
+    option.addEventListener("click", () => { 
+        nav.classList.remove("active");
+    
+    });
 });
