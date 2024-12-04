@@ -1,0 +1,136 @@
+@charset "UTF-8";
+
+
+body, html {
+    width: 100%;
+    height: 100%;
+}
+
+main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+
+#wheel {
+    margin-left: 50px;
+    width: 30vw;
+    height: 30vw;
+    border-radius: 50%;
+    border: 2px solid black;
+    position: absolute;
+    max-width: 500px;
+    max-height: 500px;
+    animation-name: wheel;
+    animation-duration: 10s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+.line {
+    background-color: black;
+    width: 50%;
+    height: 2px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform-origin: 0% 0%;
+}
+
+.line:nth-last-of-type(2) {
+    transform: rotate(60deg);
+}
+.line:nth-last-of-type(3) {
+    transform: rotate(120deg);
+}
+.line:nth-last-of-type(4) {
+    transform: rotate(180deg);
+}
+.line:nth-last-of-type(5) {
+    transform: rotate(240deg);
+}
+.line:nth-last-of-type(6) {
+    transform: rotate(300deg);
+}
+
+.cabin {
+    background-color: red;
+    width: 20%;
+    height: 20%;
+    border: 2px solid;
+    position: absolute;
+    transform-origin: 50% 0%;
+    animation: cabin 10s ease-in-out infinite;
+}
+
+.cabin:nth-last-of-type(1) {
+    right: -8.5%;
+    top: 50%
+
+}
+
+.cabin:nth-last-of-type(2) {
+    right: 17%;
+    top: 93.5%;
+    
+}
+
+.cabin:nth-last-of-type(3) {
+    right: 67%;
+    top: 93.5%;
+    
+}
+
+.cabin:nth-last-of-type(4) {
+    left: -8.5%;
+    top: 50%;
+    
+}
+
+.cabin:nth-last-of-type(5) {
+
+    left: 17%;
+    top: 7%;
+    
+}
+
+.cabin:nth-last-of-type(6) {
+    right: 17%;
+    top: 7%;
+    
+}
+
+@keyframes wheel {
+    
+    0%{
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes cabin {
+    
+    0% {
+        transform: rotate(0deg);
+        background-color: yellow;
+    }
+
+    25% {
+        background-color: red;
+    }
+
+    50% {
+        background-color: aqua;
+    }
+
+    100% {
+        transform:rotate(-360deg);
+        background-color: yellow;
+    }
+}
