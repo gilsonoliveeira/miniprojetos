@@ -14,15 +14,12 @@
     box-sizing: border-box;
 }
 
-body {
-    height: 100vh;
-    width: 100vw;
+body, main {
+    height: 100%;
+    width: 100%;
+    background-color: var(--color1);
 }
 
-main {
-    background-color: var(--color1);
-    height: 100vh;
-}
 
 #navbar {
     background-color: var(--color3);
@@ -48,10 +45,11 @@ main {
 }
 
 #welcome-section {
-    position: relative;
-    top: 100px;
+    margin-top: 150px;
+    margin-left: 150px;
+    
     font-size: 2em;
-    left: 150px;
+    
     color: white;
 }
 
@@ -74,6 +72,33 @@ strong{
     color: var(--color2);
     font-size: 12px;
 }
+
+#contact:hover {
+    background-color: #D35363;
+    color: white;
+    cursor: pointer;
+}
+
+#container {
+    width: 50%;
+    margin: auto;
+    margin-top: 100px;
+   
+}
+
+#about-me {
+    background-color:var(--color1);
+    border-radius: 20px;
+    
+    padding: 20px;
+    border: 2px solid var(--color2);
+    color: white;
+    line-height: 30px;
+    font-size: 1.2em;
+   
+}
+
+
 
 
 
