@@ -47,9 +47,7 @@ body, main {
 #welcome-section {
     margin-top: 150px;
     margin-left: 150px;
-    
-    font-size: 2em;
-    
+    font-size: 3em;
     color: white;
 }
 
@@ -82,21 +80,48 @@ strong{
 #container {
     width: 50%;
     margin: auto;
-    margin-top: 100px;
+    margin-top: 150px;
    
+}
+
+#about-me-title, #skills-title{
+    width: 100%;
+    text-align: center;
+    color: var(--color2);
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    margin-top: 100px;
 }
 
 #about-me {
     background-color:var(--color1);
     border-radius: 20px;
-    
     padding: 20px;
     border: 2px solid var(--color2);
     color: white;
-    line-height: 30px;
-    font-size: 1.2em;
-   
+    line-height: 40px;
+    font-size: 1.2em;   
 }
+
+
+
+#skills {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+    width: 100%;
+    
+}
+
+.html,.css,.javaScript {
+    width: 100px;
+    height: 100px;
+    margin: 50px;
+}
+
+
+
 
 
 

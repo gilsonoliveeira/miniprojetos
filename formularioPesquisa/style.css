@@ -17,7 +17,7 @@ body {
 
 header {
     width: 100%;
-    height: 350px;
+    height: 200px;
     margin-top: 50px;
 }
 
@@ -49,7 +49,7 @@ h1 {
 
 #survey-form {   /*Formúlario*/
     margin: 40px;
-    margin-top: 10px;
+    
 }
 
 #name-label, #email-label, #number-label { 
