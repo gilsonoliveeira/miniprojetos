@@ -63,6 +63,26 @@ body, main {
     font-size: 24px;
 }
 
+.red-line1 {
+    display: flex;
+    width: 500px;
+    background-color: var(--color3);
+    height: 600px;
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    justify-content: center;
+    
+}
+
+
+
+.myPhoto {
+    display: flex;
+    position: relative;
+   
+}
+
 strong{
     color: var(--color2);
 }
@@ -92,6 +112,7 @@ strong{
 }
 
 #title{
+    display: block;
     text-align: center;
     color: var(--color2);
     font-size: 1.8em;
@@ -100,7 +121,7 @@ strong{
     border: 1px solid var(--color2);
     border-radius: 8px; /* Bordas arredondadas */
     color: var(--color2);
-    width: max-content;
+    width: fit-content;
     padding: 5px;
     
     
@@ -114,7 +135,8 @@ strong{
     color: white;
     line-height: 40px;
     font-size: 1.2em;   
-    box-shadow: 0 4px 10px var(--color2)
+    box-shadow: 0 4px 10px var(--color2);
+    width: 100%;
 }
 
 #skills { 
@@ -127,46 +149,52 @@ strong{
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: auto;
     border: 2px solid var(--color2);
     box-shadow: 0 4px 10px var(--color2);
     border-radius: 20px;
+    max-width: 800px;
+    width: 100%;
+    margin: auto;
+    
     
 }
 
-.html,.css,.javaScript {
+.html,.css,.javaScript{
     width: 100px;
     height: 100px;
     margin: 50px;
 }
 
 #projects {
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     border: 2px solid var(--color2);
     margin: auto;
-    margin-bottom: 100px;
+    margin-bottom: 80px;
     border-radius: 20px;
     box-shadow: 0 4px 10px var(--color2);
-    margin-left: 40px;
-    margin-right: 40px;
-    
+    max-width: 1300px;
+    width: 100%;
+   
 }
 
 
 .project-tile{
     display: grid;
-    grid-template-columns: 30% 30% 30%; 
+    grid-template-columns: 0.5fr 0.5fr 0.5fr; 
     justify-content: center;
     margin-top: 50px;
 }
 
 .project-tile img {
-    margin-top: 10px;
+    margin-top: 5px;
     width: 350px;
     height: 200px;
     margin-bottom: 100px;
-    border: 3px solid white;
+    border: 3px solid var(--color4);
     margin: 40px;
+    border-radius: 20px;
 }
 
 .project-tile img:hover {
@@ -181,6 +209,7 @@ strong{
     font-size: 1.4em;
     margin-bottom: 5px;
     text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 
 }
 
@@ -218,19 +247,18 @@ footer img {
 
 #copy{
     display: block;
-    height: 30px;
+    height: 40px;
     background-color: var(--color3);
     color: #D35363;
     text-align: center;
     padding: 15px;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 768px) {   /* Estilo para Celulares */
 
     #welcome-section {
-        width: 100%;
-        margin: 20px;
-        margin-top: 160px;
+        width: 90%;
+        margin: 140px 20px;
         font-size: 2.5em;
         
         
@@ -256,8 +284,9 @@ footer img {
     }
 
     #projects {
-        margin-left: 20px;
-        margin-right: 20px;
+        margin: 30px 20px 150px 20px;
+        width: 90%;
+
     }
 
     .project-tile {
@@ -265,13 +294,54 @@ footer img {
         grid-template-columns: 1fr;
     }
 
+}
 
 
+@media (min-width: 769px) and (max-width: 1023px) {  /*Estilo para Tablets */
+    #welcome-section {
+        width: 90%;
+        margin: 280px 80px;
+        font-size: 2.5em;
+        
+        
+    }
+
+    #container {
+        width: 80%;
+        margin: auto;
+
+    }
+
+    #skills {
+        width: 500px;
+        margin: 200px auto;
+        
+    }
+
+    .all-skills {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        
+    }
 
 
+    #projects {
+        margin-left: 20px;
+        margin-right: 20px;
+        width: 900px;
+        margin: 20px auto 200px auto;
+    }
 
+    .project-tile {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
 
 }
+
+
+
+
 
 
 
