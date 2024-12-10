@@ -127,7 +127,6 @@ strong{
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 60%;
     margin: auto;
     border: 2px solid var(--color2);
     box-shadow: 0 4px 10px var(--color2);
@@ -144,28 +143,30 @@ strong{
 #projects {
     display: block;
     border: 2px solid var(--color2);
-    width: 80%;
     margin: auto;
     margin-bottom: 100px;
     border-radius: 20px;
-    box-shadow: 0 4px 10px var(--color2)
+    box-shadow: 0 4px 10px var(--color2);
+    margin-left: 40px;
+    margin-right: 40px;
     
 }
 
 
 .project-tile{
     display: grid;
-    grid-template-columns: 500px 500px 500px;
+    grid-template-columns: 30% 30% 30%; 
     justify-content: center;
     margin-top: 50px;
 }
 
 .project-tile img {
     margin-top: 10px;
-    width: 400px;
+    width: 350px;
     height: 200px;
     margin-bottom: 100px;
     border: 3px solid white;
+    margin: 40px;
 }
 
 .project-tile img:hover {
@@ -222,6 +223,54 @@ footer img {
     color: #D35363;
     text-align: center;
     padding: 15px;
+}
+
+@media screen and (max-width: 768px) {
+
+    #welcome-section {
+        width: 100%;
+        margin: 20px;
+        margin-top: 160px;
+        font-size: 2.5em;
+        
+        
+    }
+
+    #container {
+        width: 90%;
+        margin-left: 20px;
+        margin-right: 20px;
+
+    }
+
+    #skills {
+        margin-left: 20px;
+        margin-right: 20px;
+        
+    }
+
+    .all-skills {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        
+    }
+
+    #projects {
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+
+    .project-tile {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+
+
+
+
+
+
+
 }
 
 
