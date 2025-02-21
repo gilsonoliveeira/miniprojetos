@@ -21,35 +21,88 @@ body, main {
 }
 
 
+#abrir-menu{
+    display: none;
+    background-color: #333;
+    color: white;
+    position: absolute;
+    top: 15%;
+    left: 0;
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    text-align: center;
+    list-style: none;
+    position: fixed;
+}
+
+#abrir-menu a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    margin-top: 10px;
+    font-size: 1.4em;
+    border: 1px solid var(--color2);
+    border-radius: 5px;
+    
+}
+
+#abrir-menu a:hover{
+    background-color: var(--color2);
+
+}
+
+
+#menu-burguer {
+    font-size: 30px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    color: black;
+    display: none;
+}
+
+
 #navbar {
+    display: flex;
     background-color: var(--color3);
     height: 100px;
-    display: flex;
-    justify-content: end;
+    justify-content: space-between;
     align-items: center;
     gap: 5px;
     position: fixed;
-    width: 100%;
+    width: 100vw;
     top: 0;
-    z-index: 10;
 }
 
-#navbar a {
-    text-decoration: none;
+#lista {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    text-align: center;
     margin-right: 50px;
-    color: var(--color4);
-    font-size:18px;
+    gap: 20px;
+}
 
+#lista li {
+    list-style: none;
+    margin-left: 20px;
+}
+
+#lista li a {
+    text-decoration: none;
+    color: var(--color4);
+    font-size:20px;
 }
 
 .portifolio {
-    display: flex;
-    align-items: center;
-    justify-content: start;
-    color: var(--color4);
-    margin-left: 30px;
-    width: 80%;
+  flex: 1;
+  margin-left: 30px;
+}
 
+.portifolio h1 {
+    color: var(--color4);
+    font-size: 1.5rem;
 }
 
 
@@ -81,6 +134,7 @@ body, main {
     flex-direction: column; /* Empilha os elementos verticalmente */
     max-width: 50%; /* Garante que os textos não ocupem toda a largura */
     gap: 15px; /* Espaçamento entre os elementos */
+    height: 400px;
 }
 
 .text-container p {
@@ -93,15 +147,16 @@ body, main {
 
 .myPhoto {
     display: flex;
-    width: 400px;
-    height: 400px;
+    width: 350px;
+    height: 350px;
     border-radius: 20%;
     border: 3px solid var(--color4);
     background-image: url('img/gilson.jpg');
     background-size: cover; 
     background-position: center; 
     background-repeat: no-repeat;
-    margin: 40px auto 20px; 
+    margin: 0px auto 20px; 
+
 }
 
 
@@ -174,7 +229,6 @@ strong{
     border: 2px solid var(--color2);
     box-shadow: 0 4px 10px var(--color2);
     border-radius: 20px;
-    max-width: 800px;
     width: 100%;
     margin: auto;
     
@@ -278,6 +332,8 @@ footer img {
 
 @media screen and (max-width: 768px) {   /* Estilo para Celulares */
 
+
+
     .myPhoto {
         width: 300px; /* Ajuste o tamanho para dispositivos pequenos */
         height: 300px;
@@ -333,6 +389,19 @@ footer img {
         grid-template-columns: 1fr;
     }
 
+    #menu-burguer{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        margin-right: 30px;
+        
+    }
+
+    #navbar a {
+        display: none;
+    }
+
 }
 
 
@@ -375,6 +444,7 @@ footer img {
         display: grid;
         grid-template-columns: 1fr 1fr;
     }
+
 
 }
 
