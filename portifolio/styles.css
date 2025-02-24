@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Oxanium:wght@200..800&display=swap');
+
 
 :root {
     --color1: #2e2f33;
@@ -10,7 +12,7 @@
 * {
     padding: 0;
     margin: 0;
-    font-family: sans-serif;
+    font-family: 'Montserrat';
     box-sizing: border-box;
 }
 
@@ -135,6 +137,7 @@ body, main {
     max-width: 50%; /* Garante que os textos não ocupem toda a largura */
     gap: 15px; /* Espaçamento entre os elementos */
     height: 400px;
+    margin-top: 40px;
 }
 
 .text-container p {
@@ -146,17 +149,16 @@ body, main {
 
 
 .myPhoto {
-    display: flex;
-    width: 350px;
-    height: 350px;
-    border-radius: 20%;
-    border: 3px solid var(--color4);
+    width: 500px;
+    height: 700px;
+    border-radius: 20px;
+    border: 3px solid var(--color2);
+    box-shadow: 0 4px 10px var(--color2);
     background-image: url('img/gilson.jpg');
     background-size: cover; 
     background-position: center; 
     background-repeat: no-repeat;
-    margin: 0px auto 20px; 
-
+    margin-right: 80px;
 }
 
 
@@ -173,6 +175,7 @@ strong{
     border-radius: 10px;
     color: var(--color2);
     font-size: 12px;
+    text-decoration: none;
 }
 
 #contact:hover {
@@ -182,10 +185,15 @@ strong{
 }
 
 #container {
-    width: 50%;
+    width: 60%;
     margin: auto;
-    margin-top: 250px;
-   
+    margin-top:300px;
+}
+
+.container2 { 
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-top: 50px;
 }
 
 #title{
@@ -200,39 +208,56 @@ strong{
     color: var(--color2);
     width: fit-content;
     padding: 5px;
-    
-    
 }
 
 #about-me {
-    background-color:var(--color1);
+    background-color: var(--color1);
     border-radius: 20px;
     padding: 20px;
     border: 2px solid var(--color2);
     color: white;
-    line-height: 40px;
-    font-size: 1.2em;   
+    line-height: 1.6;
+    font-size: 1.2em;
     box-shadow: 0 4px 10px var(--color2);
-    width: 100%;
+    height: auto; /* Permite que a altura seja ajustada automaticamente */
+    max-width: 100%; /* Garante que o elemento ocupe no máximo 100% da largura */
+    width: 90%; /* Ajusta a largura para 90% da tela */
+    margin: 0 auto; /* Centraliza o elemento na tela */
 }
 
-#skills { 
+#skills-wrapper { 
     margin: 300px;
+    overflow: hidden;
+    white-space: nowrap;  /* Evita quebra de linha */
 }
 
 
-
-.all-skills {
-    display: flex;
+#all-skills {
+    margin-top: 20px;
+    display: inline-flex;
     justify-content: center;
     align-items: center;
-    border: 2px solid var(--color2);
-    box-shadow: 0 4px 10px var(--color2);
-    border-radius: 20px;
-    width: 100%;
-    margin: auto;
+    background-color: var(--color3);
+    gap: 30px;
+    animation: mover 20s linear infinite;
+    width: calc(200% + 50px); /* Para a rolagem contínua */
     
+}
+
+.all-skills img{
+    width: 100px;
+    height: 100px;
     
+}
+
+@keyframes mover{
+    0% {
+        transform: translateX(0);
+    }
+
+    100%{
+        transform: translateX(-50%);
+    }
 }
 
 .html,.css,.javaScript{
