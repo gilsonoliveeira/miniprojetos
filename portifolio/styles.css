@@ -70,7 +70,7 @@ body, main {
 #navbar {
     display: flex;
     background-color: var(--color3);
-    height: 100px;
+    height: 80px;
     justify-content: space-between;
     align-items: center;
     gap: 5px;
@@ -115,9 +115,14 @@ body, main {
     transition: all 0.5s;
 }
 
-hr {
-    border: 1px solid var(--color2);
-    margin: 150px auto;
+hr, .hrfinal {
+    border: 1px solid white;
+    margin: 100px auto;
+}
+
+.hrfinal{
+    width: 60%;
+    margin-bottom: 120px;
 }
 
 #about-me, #skills, #projects{
@@ -207,7 +212,7 @@ strong{
     text-align: center;
     color: var(--color2);
     font-size: 1.8em;
-    margin: 0 auto 20px;
+    margin: 30px auto;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Sombra para destaque */
     border: 1px solid var(--color2);
     border-radius: 8px; /* Bordas arredondadas */
@@ -232,7 +237,7 @@ strong{
 }
 
 #skills-wrapper { 
-    margin: 300px;
+    margin: 130px auto ;
     overflow: hidden;
     white-space: nowrap;  /* Evita quebra de linha */
 }
@@ -272,7 +277,7 @@ strong{
     margin: 50px;
 }
 
-#projects {
+#projects, .certificates {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -287,12 +292,27 @@ strong{
 }
 
 
-.project-tile{
+.certificado img {
+    width: 350px;
+    height: 200px;
+}
+
+
+.project-tile {
     display: grid;
     grid-template-columns: 0.5fr 0.5fr 0.5fr; 
-    justify-content: center;
     margin-top: 50px;
 }
+
+
+.certificate-tile {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 50px;
+    margin: 50px;
+    
+}
+
 
 .project-tile img {
     margin-top: 5px;
@@ -303,6 +323,8 @@ strong{
     margin: 40px;
     border-radius: 20px;
 }
+
+
 
 .project-tile img:hover {
     border: 3px solid var(--color2);
@@ -403,13 +425,12 @@ footer img {
         
     }
 
-    .all-skills {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
+    #all-skills {
+        animation: mover 5s linear infinite;
         
     }
 
-    #projects {
+    #projects, .certificates {
         margin: 30px 20px 150px 20px;
         width: 90%;
 
@@ -418,6 +439,13 @@ footer img {
     .project-tile {
         display: grid;
         grid-template-columns: 1fr;
+    }
+
+
+
+    .certificate-tile {
+        grid-template-columns: 1fr;
+        
     }
 
     #menu-burguer{
