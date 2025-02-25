@@ -6,13 +6,14 @@
     --color2: #D35363;
     --color3: #252628;
     --color4: #626262;
+    --font1: 'Montserrat';
     
 }  
 
 * {
     padding: 0;
     margin: 0;
-    font-family: 'Montserrat';
+    font-family: var(--font1);
     box-sizing: border-box;
 }
 
@@ -21,6 +22,7 @@ body, main {
     width: 100%;
     background-color: var(--color1);
 }
+
 
 
 #abrir-menu{
@@ -111,7 +113,11 @@ body, main {
 #navbar a:hover{
     color: var(--color2);
     transition: all 0.5s;
+}
 
+hr {
+    border: 1px solid var(--color2);
+    margin: 150px auto;
 }
 
 #about-me, #skills, #projects{
@@ -137,7 +143,7 @@ body, main {
     max-width: 50%; /* Garante que os textos não ocupem toda a largura */
     gap: 15px; /* Espaçamento entre os elementos */
     height: 400px;
-    margin-top: 40px;
+    margin-top: 20px;
 }
 
 .text-container p {
@@ -150,7 +156,7 @@ body, main {
 
 .myPhoto {
     width: 500px;
-    height: 700px;
+    height: auto;
     border-radius: 20px;
     border: 3px solid var(--color2);
     box-shadow: 0 4px 10px var(--color2);
@@ -217,11 +223,11 @@ strong{
     border: 2px solid var(--color2);
     color: white;
     line-height: 1.6;
-    font-size: 1.2em;
+    font-size: 1em;
     box-shadow: 0 4px 10px var(--color2);
     height: auto; /* Permite que a altura seja ajustada automaticamente */
     max-width: 100%; /* Garante que o elemento ocupe no máximo 100% da largura */
-    width: 90%; /* Ajusta a largura para 90% da tela */
+    width: 100%; /* Ajusta a largura para 90% da tela */
     margin: 0 auto; /* Centraliza o elemento na tela */
 }
 
