@@ -1,4 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Oxanium:wght@200..800&display=swap');
 
 
 :root {
@@ -7,6 +6,7 @@
     --color3: #252628;
     --color4: #626262;
     --font1: 'Montserrat';
+    --font2: 'Oxanium';
     
 }  
 
@@ -115,17 +115,7 @@ body, main {
     transition: all 0.5s;
 }
 
-hr, .hrfinal {
-    border: 1px solid white;
-    margin: 100px auto;
-}
-
-.hrfinal{
-    width: 60%;
-    margin-bottom: 120px;
-}
-
-#about-me, #skills, #projects{
+#about-me, #title, #projects, .certificates{
     scroll-margin-top: 200px;  /* Faz a pagina criar uma margem ao clicar em um icone de ancora no navbar*/
 }
 
@@ -135,10 +125,14 @@ hr, .hrfinal {
     align-items: center;
     justify-content: space-between;
     padding: 20px;
-    margin-top: 200px;
+    margin-top: 8vw;
     margin-left: 150px;
     font-size: 3em;
     color: white;
+}
+
+#typingEffect{
+    font-family: var(--font2);
 }
 
 
@@ -151,6 +145,7 @@ hr, .hrfinal {
     margin-top: 20px;
 }
 
+
 .text-container p {
     font-size: 2rem;
     color: var(--color4);
@@ -160,8 +155,6 @@ hr, .hrfinal {
 
 
 .myPhoto {
-    width: 500px;
-    height: auto;
     border-radius: 20px;
     border: 3px solid var(--color2);
     box-shadow: 0 4px 10px var(--color2);
@@ -173,12 +166,24 @@ hr, .hrfinal {
 }
 
 
-strong{
-    color: var(--color2);
+
+
+.buttons {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 1s ease, visibility 0s 1s;
+
 }
 
+.buttons.show-buttons {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 1s ease; /* Só a opacidade precisa de transição agora */
+}
+
+
 #contact{
-    margin-top: 50px;
+    margin-top: 10px;
     padding: 10px;
     width: 150px;
     background-color: var(--color1);
@@ -196,7 +201,7 @@ strong{
 }
 
 #container {
-    width: 60%;
+    width: 80%;
     margin: auto;
     margin-top:300px;
 }
@@ -217,11 +222,12 @@ strong{
     border: 1px solid var(--color2);
     border-radius: 8px; /* Bordas arredondadas */
     color: var(--color2);
-    width: fit-content;
+    width: 500px;
     padding: 5px;
 }
 
 #about-me {
+    font-family: var(--font2);
     background-color: var(--color1);
     border-radius: 20px;
     padding: 20px;
@@ -288,6 +294,7 @@ strong{
     box-shadow: 0 4px 10px var(--color2);
     max-width: 1300px;
     width: 100%;
+    margin-bottom: 200px;
    
 }
 
@@ -313,6 +320,14 @@ strong{
     
 }
 
+.certificado {
+    transition: transform 0.3s ease
+}
+
+.certificado:hover{
+    transform: scale(1.2);
+}
+
 
 .project-tile img {
     margin-top: 5px;
@@ -325,11 +340,10 @@ strong{
 }
 
 
-
 .project-tile img:hover {
     border: 3px solid var(--color2);
-    transition: all 0.5s;
-}
+
+}   
 
 .project-tile a {
     display: block;
@@ -353,7 +367,6 @@ footer {
     align-items: center;
     justify-content: center;
     height: 130px;
-    
 }
 
 
@@ -390,7 +403,7 @@ footer img {
     .myPhoto {
         width: 300px; /* Ajuste o tamanho para dispositivos pequenos */
         height: 300px;
-        margin: 120px auto 80px auto; /* Garante que a imagem tenha espaço adequado */
+        margin: 20px auto 80px auto; /* Garante que a imagem tenha espaço adequado */
         border-radius: 30%; /* Torna a imagem circular */
     }
 
@@ -419,6 +432,10 @@ footer img {
 
     }
 
+    .container2{
+        grid-template-columns: 1fr;
+    }
+
     #skills {
         margin-left: 20px;
         margin-right: 20px;
@@ -428,6 +445,10 @@ footer img {
     #all-skills {
         animation: mover 5s linear infinite;
         
+    }
+
+    #title{
+        width: 300px;
     }
 
     #projects, .certificates {

@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portifólio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Oxanium:wght@200..800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 
@@ -18,7 +19,7 @@
                 <li><a href="#about-me">Sobre Mim</a></li>
                 <li><a href="#all-skills">Skills</a></li>
                 <li><a href="#projects">Projetos</a></li>
-                <li><a href="#certificados">Certificados</a></li>
+                <li><a href="#certificates">Certificados</a></li>
             </ul>
             <div id="menu-burguer">
                 <svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px"
@@ -33,10 +34,8 @@
         </div>
         <section id="welcome-section">
             <div class="text-container">
-                <h1>Hi,<br>
-                    I'm <strong>Gilson</strong>,<br>
-                    Front-end Developer.</h1>
-                <p>Html / CSS / JavaScript</p>
+                <h1 id="typingEffect"> </h1>
+                <p id="typingEffect2"></p>
                 <div class="buttons">
                     <input type="submit" value="Contate-me" id="contact">
                     <a href="caminho/para/o/arquivo.pdf" download class="botao-download" id="contact">Download CV</a>
@@ -45,16 +44,15 @@
         </section>
         </section>
         <section id="container">
-            <hr>
             <h1 id="title">Sobre mim</h1>
             <div class="container2">
-                <div class="myPhoto"></div>
+                <div class="myPhoto">
+                </div>
                 <div id="about-me">
                     <p>"Sou formado em Administração de Empresas pelo Instituto Federal de Ciência e Tecnologia de Minas Gerais (2017) e atualmente curso Análise e Desenvolvimento de Sistemas na Universidade Unicesumar, em Maringá, PR. Minha primeira experiência na área administrativa foi como gerente de hotel em Rio Pomba, MG, onde trabalhei por 2,5 anos, desenvolvendo habilidades de gestão e liderança. Além disso, tenho conhecimentos técnicos em montagem e manutenção de computadores. Estou focado em me especializar em programação front-end e desenvolvimento web, áreas que me fascinam pelo potencial de criar soluções inovadoras e dinâmicas. Sou proativo, organizado, criativo e estou sempre disposto a aprender coisas novas. Meu objetivo é concluir a graduação e atuar como desenvolvedor, combinando paixão e realização profissional. No meu tempo livre, gosto de me imergir em jogos, filmes e séries, que frequentemente me inspiram a pensar de maneira criativa e inovadora."
                     </p>
                 </div>
             </div>
-            <hr>
         </section>
         <section id="skills-wrapper">
             <h2 id="title">Minhas Skills</h2>
@@ -98,9 +96,8 @@
                 </div>                   
             </div>
         </section>
-        <hr class="hrfinal">
         <h2 id="title">Certificados</h2>
-        <section class="certificates">
+        <section class="certificates" id="certificates">
             <div class="certificate-tile">
                 <div class="certificado">
                     <a href="img/certificados/Algoritmos e logica de programação- Udemy.jpg"><img src="img/certificados/Algoritmos e logica de programação- Udemy.jpg" alt="Algoritimos e lógica de programação"></a>
@@ -121,7 +118,6 @@
                 </div>
             </div>
         </section>
-        <hr class="hrfinal">
         <h2 id="title">Projetos</h2>
         <section id="projects">
             <div class="project-tile">
