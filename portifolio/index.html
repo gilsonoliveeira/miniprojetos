@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portifólio</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
     <link
         href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Oxanium:wght@200..800&display=swap"
         rel="stylesheet">
@@ -19,7 +20,7 @@
             </div>
             <ul id="lista">
                 <li><a href="#about-me">Sobre Mim</a></li>
-                <li><a href="#all-skills">Skills</a></li>
+                <li><a href="#skills-wrapper">Skills</a></li>
                 <li><a href="#projects">Projetos</a></li>
                 <li><a href="#certificates">Certificados</a></li>
             </ul>
@@ -39,12 +40,16 @@
                 <h1 id="typingEffect"> </h1>
                 <div id="icons">
                     <a id="profile-link" target="_blank" href="https://github.com/gilsonoliveeira"><img
-                            src="https://img.icons8.com/?size=100&id=12599&format=png&color=F25081" alt="github.png" width="40px"></a>
+                            src="https://img.icons8.com/?size=100&id=12599&format=png&color=F25081" alt="github.png"
+                            width="40px"></a>
                     <a href="https://www.facebook.com/GilsonOliiveiira/" target="_blank"><img
-                            src="https://img.icons8.com/?size=100&id=118467&format=png&color=F25081" alt="facebok.png" width="40px"></a>
-                    <a href="https://www.instagram.com/gilsonoliveeira" target="_blank"><img src="https://img.icons8.com/?size=100&id=32309&format=png&color=F25081"
-                            alt="instagram.png" width="40px"></a>
-                    <a href="https://wa.me/5532999970772" target="_blank"><img src="https://img.icons8.com/?size=100&id=16733&format=png&color=F25081" alt="whatsapp.png"
+                            src="https://img.icons8.com/?size=100&id=118467&format=png&color=F25081" alt="facebok.png"
+                            width="40px"></a>
+                    <a href="https://www.instagram.com/gilsonoliveeira" target="_blank"><img
+                            src="https://img.icons8.com/?size=100&id=32309&format=png&color=F25081" alt="instagram.png"
+                            width="40px"></a>
+                    <a href="https://wa.me/5532999970772" target="_blank"><img
+                            src="https://img.icons8.com/?size=100&id=16733&format=png&color=F25081" alt="whatsapp.png"
                             width="40px"></a>
                 </div>
                 <div class="buttons">
@@ -56,7 +61,7 @@
         </section>
         <section id="container">
             <div class="container2">
-                <div id="about-me">
+                <div data-aos="zoom-in" data-aos-duration="1600" id="about-me" class="about-me">
                     <h1>Quem eu sou ?</h1>
                     <p>"Sou formado em Administração de Empresas pelo Instituto Federal de Ciência e Tecnologia de Minas
                         Gerais (2017) e atualmente curso Análise e Desenvolvimento de Sistemas na Universidade
@@ -71,9 +76,9 @@
                         criativa e inovadora."
                     </p>
                 </div>
-                <div class="myPhoto">
+                <div class="myPhoto" data-aos="fade-left" data-aos-duration="1900">
                 </div>
-                <div class="placa-container">
+                <div class="placa-container " data-aos="fade-left" data-aos-duration="2200">
                     <h1 id="title-about">
                         Sobre mim
                     </h1>
@@ -85,61 +90,83 @@
         </section>
         <section id="skills-wrapper">
             <hr>
-            <h2 id="title">Skills
-            </h2>
+            <div class="title-div">
+                <h2 id="title">Skills</h2>
+            </div>
             <div id="all-skills">
                 <div class="html">
-                    <img src="img/htmlLogo.png" alt="Logo HTML">
+                    <img src="https://img.icons8.com/?size=100&id=20909&format=png&color=000000" alt="Logo HTML">
                     <h2 class="title-logo">HTML5</h2>
                 </div>
                 <div class="css">
-                    <img src="img/cssLogo.png" alt="Logo CSS">
+                    <img src="https://img.icons8.com/?size=100&id=21278&format=png&color=000000" alt="Logo CSS">
                     <h2 class="title-logo">CSS3</h2>
                 </div>
-                <div class="javaScript">
-                    <img src="img/javaScriptlogo.png" alt="Logo JavaScript">
+                <div class="javascript">
+                    <img src="https://img.icons8.com/?size=100&id=108784&format=png&color=000000" alt="Logo JavaScript">
                     <h2 class="title-logo">JavaScript</h2>
                 </div>
                 <div class="python">
-                    <img src="https://img.icons8.com/?size=100&id=l75OEUJkPAk4&format=png&color=000000" alt="Logo Python">
+                    <img src="https://img.icons8.com/?size=100&id=l75OEUJkPAk4&format=png&color=000000"
+                        alt="Logo Python">
                     <h2 class="title-logo">Python</h2>
+                </div>
+                <div class="react">
+                    <img src="https://img.icons8.com/?size=100&id=asWSSTBrDlTW&format=png&color=000000"
+                        alt="Logo React">
+                    <h2 class="title-logo">React</h2>
                 </div>
                 <div class="html">
-                    <img src="img/htmlLogo.png" alt="Logo HTML">
+                    <img src="https://img.icons8.com/?size=100&id=20909&format=png&color=000000" alt="Logo HTML">
                     <h2 class="title-logo">HTML5</h2>
                 </div>
                 <div class="css">
-                    <img src="img/cssLogo.png" alt="Logo CSS">
+                    <img src="https://img.icons8.com/?size=100&id=21278&format=png&color=000000" alt="Logo CSS">
                     <h2 class="title-logo">CSS3</h2>
                 </div>
-                <div class="javaScript">
-                    <img src="img/javaScriptlogo.png" alt="Logo JavaScript">
+                <div class="javascript">
+                    <img src="https://img.icons8.com/?size=100&id=108784&format=png&color=000000" alt="Logo JavaScript">
                     <h2 class="title-logo">JavaScript</h2>
                 </div>
                 <div class="python">
-                    <img src="https://img.icons8.com/?size=100&id=l75OEUJkPAk4&format=png&color=000000" alt="Logo Python">
+                    <img src="https://img.icons8.com/?size=100&id=l75OEUJkPAk4&format=png&color=000000"
+                        alt="Logo Python">
                     <h2 class="title-logo">Python</h2>
+                </div>
+                <div class="react">
+                    <img src="https://img.icons8.com/?size=100&id=asWSSTBrDlTW&format=png&color=000000"
+                        alt="Logo React">
+                    <h2 class="title-logo">React</h2>
                 </div>
                 <div class="html">
-                    <img src="img/htmlLogo.png" alt="Logo HTML">
+                    <img src="https://img.icons8.com/?size=100&id=20909&format=png&color=000000" alt="Logo HTML">
                     <h2 class="title-logo">HTML5</h2>
                 </div>
                 <div class="css">
-                    <img src="img/cssLogo.png" alt="Logo CSS">
+                    <img src="https://img.icons8.com/?size=100&id=21278&format=png&color=000000" alt="Logo CSS">
                     <h2 class="title-logo">CSS3</h2>
                 </div>
-                <div class="javaScript">
-                    <img src="img/javaScriptlogo.png" alt="Logo JavaScript">
+                <div class="javascript">
+                    <img src="https://img.icons8.com/?size=100&id=108784&format=png&color=000000" alt="Logo JavaScript">
                     <h2 class="title-logo">JavaScript</h2>
                 </div>
                 <div class="python">
-                    <img src="https://img.icons8.com/?size=100&id=l75OEUJkPAk4&format=png&color=000000" alt="Logo Python">
+                    <img src="https://img.icons8.com/?size=100&id=l75OEUJkPAk4&format=png&color=000000"
+                        alt="Logo Python">
                     <h2 class="title-logo">Python</h2>
                 </div>
+                <div class="react">
+                    <img src="https://img.icons8.com/?size=100&id=asWSSTBrDlTW&format=png&color=000000"
+                        alt="Logo React">
+                    <h2 class="title-logo">React</h2>
+                </div>
+            </div>
             </div>
         </section>
         <hr>
-        <h2 id="title">Certificados</h2>
+        <div class="title-div">
+            <h2 id="title">Certificados</h2>
+        </div>
         <section class="certificates" id="certificates">
             <div class="certificate-tile">
                 <div class="certificado">
@@ -168,22 +195,53 @@
                 </div>
             </div>
         </section>
-        <h2 id="title">Projetos</h2>
+        <hr>
+        <div class="title-div">
+            <h2 id="title">Projetos</h2>
+        </div>
         <section id="projects">
             <div class="project-tile">
-                <div class="cronometro">
-                    <a href="https://gilsonoliveeira.github.io/miniprojetos/cronometro/index.html"
-                        target="_blank">Stopwatch<img src="img/cronometro.png" alt="cronometro.png"></a>
+                <div class="quadro">
+                    <div class="cronometro">
+                        <img src="img/cronometro.png" alt="cronometro.png" style="background-size: contain;">
+                    </div>
+                    <div class="coment">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum aliquam, sit nisi expedita
+                            veritatis tempore quidem dolor voluptates eveniet, magni optio id illum molestiae in
+                            mollitia. Repellat maiores sapiente assumenda!</p>
+                        <div class="button-link"><a
+                                href="https://gilsonoliveeira.github.io/miniprojetos/cronometro/index.html"
+                                target="_blank">Visualizar</a></div>
+                    </div>
                 </div>
-                <div class="form-search">
-                    <a href="https://gilsonoliveeira.github.io/miniprojetos/formularioPesquisa/index.html"
-                        target="_blank">Search Form<img src="img/search-form.png" alt="search-form.png"></a>
+                <div class="quadro">
+                    <div class="form-search">
+                        <img src="img/search-form.png" alt="search-form.png">
+                    </div>
+                    <div class="coment">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum aliquam, sit nisi expedita
+                            veritatis tempore quidem dolor voluptates eveniet, magni optio id illum molestiae in
+                            mollitia. Repellat maiores sapiente assumenda!</p>
+                        <div class="button-link"> <a
+                                href="https://gilsonoliveeira.github.io/miniprojetos/formularioPesquisa/index.html"
+                                target="_blank">Visualizar</a></div>
+                    </div>
                 </div>
-                <div class="landingPage">
-                    <a href="https://gilsonoliveeira.github.io/miniprojetos/landing-page/index.html"
-                        target="_blank">Landing-Page <img src="img/landingpage.png" alt="landing/page"></a>
+                <div class="quadro">
+                    <div class="landingPage">
+                        <img src="img/landingpage.png" alt="landing/page">
+                    </div>
+                    <div class="coment">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum aliquam, sit nisi expedita
+                            veritatis tempore quidem dolor voluptates eveniet, magni optio id illum molestiae in
+                            mollitia. Repellat maiores sapiente assumenda!</p>
+                        <div class="button-link"><a
+                                href="https://gilsonoliveeira.github.io/miniprojetos/landing-page/index.html"
+                                target="_blank">Visualizar</a></div>
+                    </div>
+                </div>
 
-                </div>
+                <!-- 
                 <div class="tributePage">
                     <a href="https://gilsonoliveeira.github.io/miniprojetos/paginaTributo/index.html"
                         target="_blank">Tribute Page <img src="img/paginaTributo.png" alt="paginaTributo/png"></a>
@@ -195,7 +253,7 @@
                 <div class="imcCalculator">
                     <a href="https://gilsonoliveeira.github.io/calculadora-imc/index.html" target="_blank">IMC
                         Calculator<img src="img/calculadora-imc.png" alt="Imc/Calculator.png"></a>
-                </div>
+                </div> -->
             </div>
         </section>
         </section>
@@ -216,6 +274,8 @@
             <p>Copyright ©2024; Design by <strong>Gilson Oliveira</strong> </p>
         </div>
     </main>
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js">
+    </script>
     <script src="script.js"></script>
 </body>
 

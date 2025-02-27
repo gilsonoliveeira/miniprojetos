@@ -24,17 +24,17 @@ body {
 
 #abrir-menu{
     display: none;
-    background-color: #333;
+    background-color: var(--color1);
     color: white;
-    position: absolute;
-    top: 15%;
+    position: relative;
+    top: 0;
     left: 0;
     width: 100%;
     padding: 20px;
     box-sizing: border-box;
     text-align: center;
     list-style: none;
-    position: fixed;
+    
 }
 
 #abrir-menu a {
@@ -45,11 +45,12 @@ body {
     font-size: 1.4em;
     border: 1px solid var(--color2);
     border-radius: 5px;
+    padding: 5px;
     
 }
 
 #abrir-menu a:hover{
-    background-color: var(--color2);
+    background-color: var(--color3);
 
 }
 
@@ -105,13 +106,16 @@ body {
 
 
 #navbar a:hover{
-    color: var(--color2);
+    color: var(--color4);
     transition: all 0.5s;
 }
 
 #about-me, #title, #projects, .certificates{
     scroll-margin-top: 200px;  /* Faz a pagina criar uma margem ao clicar em um icone de ancora no navbar*/
 }
+
+
+
 
 #welcome-section {
     display: flex;
@@ -237,17 +241,39 @@ hr {
 }
 
 #title{
-    display: block;
-    text-align: center;
-    color: var(--color2);
-    font-size: 1.8em;
-    margin: 30px auto;
-    border: 1px solid var(--color2);
-    border-radius: 8px; /* Bordas arredondadas */
-    color: var(--color2);
-    width: fit-content;
-    padding: 5px;
+    display: inline-block;
+    position: relative;
+    font-size: 35px;
+    color: var(--color4);
+    background-color: var(--color3);
+    padding: 8px;
+    border-radius: 10px;
+    
 }
+
+.title-div{
+    text-align: center;
+}
+
+#title::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 100%;
+    width: 25%; /* Linha até metade do texto */
+    height: 3px;
+    background-color: var(--color3);
+  }
+
+#title::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: 100%;
+    width: 25%; /* Linha até metade do texto */
+    height: 2px;
+    background-color: var(--color3);
+  }
 
 
 .placa-container {
@@ -280,7 +306,7 @@ hr {
 
 }
 
-#about-me {
+.about-me {
     font-family: var(--font2);
     background-color: var(--color1);
     padding: 20px;
@@ -293,7 +319,18 @@ hr {
     
 }
 
-#about-me h1 {
+.reveal {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 1s ease;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.about-me h1 {
     color: var(--color2);
     margin-bottom: 20px;
     
@@ -320,14 +357,15 @@ hr {
 #all-skills img {
     width: 100px;  
     height: 100px;  
-
     padding: 20px;  
     box-sizing: border-box;  
 }
 
-.python, .javaScript, .html, .css {
+.python, .javascript, .html, .css, .react {
     width: 100px;
     height: 100px;
+    margin: 30px;
+    border: 1px solid var(--color3);
 }
 
 
@@ -349,27 +387,30 @@ hr {
     }
 }
 
-.html,.css,.javaScript{
+.html,.css,.javaScript,.python,.react {
     width: 100px;
     height: 100px;
-    margin: 50px;
+    
 }
 
 #projects, .certificates {
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 2px solid var(--color2);
     margin: auto;
-    margin-bottom: 80px;
-    border-radius: 20px;
-    box-shadow: 0 4px 10px var(--color2);
     max-width: 1300px;
     width: 100%;
     margin-bottom: 200px;
    
 }
 
+.certificate-tile {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 100px;
+    margin-top: 100px;
+    
+}
 
 .certificado img {
     width: 350px;
@@ -384,13 +425,7 @@ hr {
 }
 
 
-.certificate-tile {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 50px;
-    margin: 50px;
-    
-}
+
 
 .certificado {
     transition: transform 0.3s ease
@@ -400,22 +435,55 @@ hr {
     transform: scale(1.2);
 }
 
-
-.project-tile img {
-    margin-top: 5px;
-    width: 350px;
-    height: 200px;
-    margin-bottom: 100px;
-    border: 3px solid var(--color2);
-    margin: 40px;
+.quadro{
+    background-color: var(--color3);
+    margin: 50px;
+    height: 450px;
     border-radius: 20px;
+
+}
+
+.coment {
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.button-link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.button-link a  {
+    display: inline-block;
+    width: 300px;
+    background-color: var(--color3);
+    border: 1px solid var(--color2);
+    border-radius: 10px;
+    padding: 2px 10px;
+    color: white;
+
+}
+
+.coment p {
+    color: var(--color4);
+    font-size: 18px;
+    padding: 10px;
+    margin-left: 10px;
 }
 
 
-.project-tile img:hover {
-    border: 3px solid var(--color2);
+.project-tile img {
+    width: 350px;
+    height: 220px;
+    border-radius: 20px 20px 0px 0px;
+    
+}
 
-}   
 
 .project-tile a {
     display: block;
@@ -457,8 +525,6 @@ footer img {
     text-decoration: underline;
 }
 
-
-
 #copy{
     display: block;
     height: 40px;
@@ -470,16 +536,24 @@ footer img {
 
 @media screen and (max-width: 768px) {   /* Estilo para Celulares */
 
-
-
-    .myPhoto {
-        width: 300px; /* Ajuste o tamanho para dispositivos pequenos */
-        height: 300px;
-        margin: 20px auto 80px auto; /* Garante que a imagem tenha espaço adequado */
-        border-radius: 30%; /* Torna a imagem circular */
+    #navbar {
+        margin: 0px 20px;
     }
 
-    /* Ajustar o layout da seção de boas-vindas */
+    #navbar a {
+        display: none;
+    }
+
+    #menu-burguer{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        margin-right: 0;
+        
+    }
+        
+        
     #welcome-section {
         flex-direction: column;
         text-align: start;
@@ -496,17 +570,43 @@ footer img {
         font-size: 1.5rem;
     }
 
+    .about-me {
+        margin: auto auto;
+    }
 
+    .myPhoto {
+        width: 300px;
+        height: 300px;
+        margin: 20px auto 80px auto; 
+        border-radius: 30%; 
+    }
+
+    .placa-container {
+        display: none;
+    }
+
+  
     #container {
         width: 90%;
         margin: 10px 20px 20px 10px;
        
-
     }
 
     .container2{
+        display: grid;
         grid-template-columns: 1fr;
     }
+
+    #skills-wrapper { 
+        margin: 0px ;
+        overflow: hidden;
+        white-space: nowrap;  /* Evita quebra de linha */
+    }
+    
+    hr{
+        display: none;
+    }
+
 
     #skills {
         margin-left: 20px;
@@ -519,9 +619,7 @@ footer img {
         
     }
 
-    #title{
-        width: 300px;
-    }
+    
 
     #projects, .certificates {
         margin: 30px 20px 150px 20px;
@@ -534,24 +632,9 @@ footer img {
         grid-template-columns: 1fr;
     }
 
-
-
     .certificate-tile {
         grid-template-columns: 1fr;
         
-    }
-
-    #menu-burguer{
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        cursor: pointer;
-        margin-right: 30px;
-        
-    }
-
-    #navbar a {
-        display: none;
     }
 
 }

@@ -1,29 +1,26 @@
+AOS.init() // Inicia efeitos de transição
+
 const menuBurguer = document.querySelector('#menu-burguer');
+const listaOriginal = document.querySelector('#lista'); // Guarda a lista original
 
 const abrirMenu = () => {
     const links = document.querySelectorAll('#lista li');
-    const abrirMenu = document.getElementById('abrir-menu');
+    const abrirMenuEl = document.getElementById('abrir-menu');
 
-    abrirMenu.innerHTML = ''; 
+    abrirMenuEl.innerHTML = ''; // Limpa o conteúdo anterior
 
-
-    if (abrirMenu.style.display === 'none' || abrirMenu.style.display === '') {
-        abrirMenu.style.display = 'block'; // Exibe o menu
+    if (abrirMenuEl.style.display === 'none' || abrirMenuEl.style.display === '') {
+        abrirMenuEl.style.display = 'block'; // Exibe o menu
+        links.forEach(link => {
+            abrirMenuEl.appendChild(link.cloneNode(true)); // Clona os links em vez de movê-los
+        });
     } else {
-        abrirMenu.style.display = 'none'; // Esconde o menu
+        abrirMenuEl.style.display = 'none'; // Esconde o menu
+        // Os links originais permanecem no #lista, então não precisa restaurar
     }
-
-
-    links.forEach(link => {
-        abrirMenu.appendChild(link); // Move cada link para dentro da div 'abrir-menu'
-    });
-
-    abrirMenu();
-
-    
 }
 
-menuBurguer.addEventListener('click',abrirMenu);
+menuBurguer.addEventListener('click', abrirMenu);
 
 
 
@@ -59,3 +56,6 @@ function typeWritter2(){
 window.onload = () => {
     typeWritter();
 };
+
+
+
