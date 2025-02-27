@@ -28,6 +28,7 @@ const typingEffect = document.getElementById('typingEffect');
 const icons = document.getElementById('icons');
 const textToTyping = "Hi, I'm Gilson, Front-end Developer.";
 const buttons = document.querySelector('.buttons');
+const gif = document.getElementById('gif')
 let index1 = 0;
 let index2 = 0;
 
@@ -50,6 +51,7 @@ function typeWritter2(){
         buttons.classList.add('show-buttons');
 
     }, 100);
+
 };
 
 // Iniciar o efeito de digitação ao carregar a página
@@ -57,5 +59,37 @@ window.onload = () => {
     typeWritter();
 };
 
+
+const track = document.querySelector('.carousel-track');
+const nextButton = document.querySelector('.next');
+const prevButton = document.querySelector('.prev');
+const projectTiles = document.querySelectorAll('.project-tile');
+
+let currentIndex = 0;
+const itemsToShow = 3;
+const totalItems = projectTiles.length;
+
+nextButton.addEventListener('click', () => {
+    if (currentIndex < totalItems - itemsToShow) {
+        currentIndex += itemsToShow;
+    } else {
+        currentIndex = 0; // Volta ao início
+    }
+    updateCarousel();
+});
+
+prevButton.addEventListener('click', () => {
+    if (currentIndex > 0) {
+        currentIndex -= itemsToShow;
+    } else {
+        currentIndex = totalItems - itemsToShow; // Vai para o final
+    }
+    updateCarousel();
+});
+
+function updateCarousel() {
+    const movePercentage = -(100 / itemsToShow) * currentIndex;
+    track.style.transform = `translateX(${movePercentage}%)`;
+}
 
 
