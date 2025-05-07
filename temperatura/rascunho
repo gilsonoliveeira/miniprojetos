@@ -1,0 +1,18 @@
+  <p>☁️ Clima: <br>${dados.weather[0].description}</p>
+          <p>💧 Umidade: <br>${dados.main.humidity}%</p>
+          <p>💨 Vento: <br>${dados.wind.speed} km/h</p>
+
+
+          <div class="icons">
+
+            <dotlottie-player src="https://lottie.host/3a8fc64f-2b58-4082-8b22-f609b8ca2f20/c19uRqHxap.lottie"
+                background="transparent" speed="1" style="width: 60px; height: 60px" loop
+                autoplay></dotlottie-player>
+            <dotlottie-player src="https://lottie.host/a0d36b9d-2b76-49ff-bc80-8efe9b256f1a/QAhA5gOqT1.lottie"
+                background="transparent" speed="1" style="width: 60px; height: 60px" loop
+                autoplay></dotlottie-player>'
+        </div>
+
+
+
+ 

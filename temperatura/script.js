@@ -1,28 +1,73 @@
 const inputValue = document.getElementById('iname');
 const button = document.getElementById('button-search');
-const resultSearch = document.getElementById('resultSearch')
-const icons = document.querySelector('.icons');
 const climaContainer = document.getElementById('clima');
-icons.style.display = 'none';
+const loading = document.querySelector('.loading');
+const lista = document.getElementById('sugestoes');
+const outrosDados = document.querySelector('.outrosDados');
+const buttonIniciar = document.querySelector('.button-iniciar');
+const telaInicial = document.querySelector('.tela-inicial');
+const app = document.querySelector('.app');
+const imgBack = document.querySelector('.image-back')
 
-function click() {
+// Alterna da tela inicial para o app
+buttonIniciar.addEventListener('click', () => {
+  telaInicial.style.display = 'none';
+  app.style.display = 'block';
+  imgBack.style.display = 'none';
+  buscarClima(cidade = 'São Paulo');
+
+});
+
+
+
+
+// Sugestão de cidades com base no que está sendo digitado
+inputValue.addEventListener('input', () => {
+  const termo = inputValue.value.trim();
+  if (termo.length < 2) {
+    lista.innerHTML = '';
+    return;
+  }
+
+  fetch(`https://api.openweathermap.org/geo/1.0/direct?q=${termo}&limit=5&appid=051d67b469bbcd3920c807d2d12ca307`)
+    .then(res => res.json())
+    .then(dados => {
+      lista.innerHTML = '';
+      dados.forEach(cidade => {
+        const item = document.createElement('li');
+        item.textContent = `${cidade.name}, ${cidade.country}`;
+        item.addEventListener('click', () => {
+          inputValue.value = cidade.name;
+          lista.innerHTML = '';
+        });
+        lista.appendChild(item);
+      });
+    })
+    .catch(err => {
+      console.error('Erro ao buscar cidades:', err);
+    });
+});
+
+// Ação ao clicar no botão "Buscar"
+button.addEventListener('click', () => {
   const valorDigitado = inputValue.value;
-  if(typeof valorDigitado === 'number' || valorDigitado === ''){
-    alert('Preencha o campo com a cidade desejada.')
-  }
-  else{
+  if (valorDigitado === '') {
+    alert('Preencha o campo com a cidade desejada.');
+  } else {
     buscarClima(valorDigitado);
-
   }
-}
+});
 
-button.addEventListener('click', click);
-
+// Função para buscar clima atual da cidade
 function buscarClima(cidade) {
   const apiKey = '051d67b469bbcd3920c807d2d12ca307';
   const url = `https://api.openweathermap.org/data/2.5/weather?q=${cidade}&appid=${apiKey}&units=metric&lang=pt_br`;
-  climaContainer.innerHTML = '<p>🔄 Carregando dados do clima...</p>';
-
+  loading.innerHTML = `
+     <dotlottie-player 
+    src="https://lottie.host/d3e7ce05-cae4-4a8f-a91d-b111979297bd/49ryBrVMb9.lottie"
+    background="transparent" speed="1" style="width: 100px; height: 100px" loop autoplay>
+  </dotlottie-player>
+  `
 
   fetch(url)
     .then(response => {
@@ -31,20 +76,18 @@ function buscarClima(cidade) {
     })
     .then(dados => {
       setTimeout(() => {
-
-        const climaHTML = `
-          <p>🌡️ Temperatura: <br> ${dados.main.temp}°C</p>
+        imgBack.style.display = 'flex';
+        climaContainer.innerHTML = `<p>${dados.main.temp} °C</p>`;
+        loading.innerHTML = `${cidade}`;
+        outrosDados.innerHTML = `
           <p>☁️ Clima: <br>${dados.weather[0].description}</p>
           <p>💧 Umidade: <br>${dados.main.humidity}%</p>
           <p>💨 Vento: <br>${dados.wind.speed} km/h</p>
         `;
-        climaContainer.innerHTML = climaHTML;
-        icons.style.display = 'grid';
-      }, 1200); 
+      }, 1500);
     })
     .catch(erro => {
-      climaContainer.innerText = 'Cidade não encontrada!';
+      loading.innerText = 'Cidade não encontrada!';
       console.error(erro);
     });
 }
-
