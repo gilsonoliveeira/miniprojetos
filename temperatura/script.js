@@ -7,19 +7,33 @@ const outrosDados = document.querySelector('.outrosDados');
 const buttonIniciar = document.querySelector('.button-iniciar');
 const telaInicial = document.querySelector('.tela-inicial');
 const app = document.querySelector('.app');
-const imgBack = document.querySelector('.image-back')
+const imgBack = document.querySelector('.image-back');
+const menuBurguer = document.querySelector('.burguer-menu')
+const contact = document.querySelector('.contact')
+
+// Mapeamento de condições climáticas para animações Lottie
+const weatherAnimations = {
+  Clear: './assets/sun.json',
+  Rain: './assets/rain.json',
+  Clouds: './assets/clouds.json',
+  Snow: './assets/clouds.json',
+  Thunderstorm: './assets/rain.json',
+  Drizzle: './assets/rain.json',
+  Mist: './assets/clouds.json',
+  Fog: './assets/clouds.json',
+  Haze: './assets/clouds.json',
+  Smoke: './assets/clouds.json',
+};
 
 // Alterna da tela inicial para o app
 buttonIniciar.addEventListener('click', () => {
   telaInicial.style.display = 'none';
   app.style.display = 'block';
-  imgBack.style.display = 'none';
+  imgBack.style.display = 'flex';
   buscarClima(cidade = 'São Paulo');
-
+  menuBurguer.style.display = 'none';
+  contact.style.display = 'none'
 });
-
-
-
 
 // Sugestão de cidades com base no que está sendo digitado
 inputValue.addEventListener('input', () => {
@@ -50,6 +64,7 @@ inputValue.addEventListener('input', () => {
 
 // Ação ao clicar no botão "Buscar"
 button.addEventListener('click', () => {
+  
   const valorDigitado = inputValue.value;
   if (valorDigitado === '') {
     alert('Preencha o campo com a cidade desejada.');
@@ -63,21 +78,45 @@ function buscarClima(cidade) {
   const apiKey = '051d67b469bbcd3920c807d2d12ca307';
   const url = `https://api.openweathermap.org/data/2.5/weather?q=${cidade}&appid=${apiKey}&units=metric&lang=pt_br`;
   loading.innerHTML = `
-     <dotlottie-player 
-    src="https://lottie.host/d3e7ce05-cae4-4a8f-a91d-b111979297bd/49ryBrVMb9.lottie"
-    background="transparent" speed="1" style="width: 100px; height: 100px" loop autoplay>
-  </dotlottie-player>
-  `
+    <lottie-player 
+        src="./assets/loading.json"
+        background="transparent" 
+        speed="1" 
+        style="width: 200px; height: 200px" 
+        loop 
+        autoplay
+        onerror="this.innerHTML='<p>Erro: Animação de loading não carregada. Verifique assets/loading.json.</p>'">
+    </lottie-player>
+`;
 
   fetch(url)
     .then(response => {
-      if (!response.ok) throw new Error('Erro na API');
+      if (!response.ok) throw new Error(`Erro na API: ${response.status}`);
       return response.json();
     })
     .then(dados => {
       setTimeout(() => {
+        console.log('Dados da API:', dados);
+        console.log('Condição climática:', dados.weather[0]?.main);
+        const condition = dados.weather[0]?.main || 'Clear';
+        const animationUrl = weatherAnimations[condition] || './assets/clouds.json';
+        console.log('URL da animação:', animationUrl);
+
+        // Tenta carregar a animação Lottie
         imgBack.style.display = 'flex';
-        climaContainer.innerHTML = `<p>${dados.main.temp} °C</p>`;
+        imgBack.innerHTML = `
+          <lottie-player 
+            src="${animationUrl}" 
+            background="transparent" 
+            speed="1" 
+            style="width: 180px; height: 180px;" 
+            loop 
+            autoplay
+            onerror="this.innerHTML='<img src=https://openweathermap.org/img/wn/01d@2x.png alt=Fallback style=width:180px;height:180px;>'">
+          </lottie-player>
+        `;
+
+        climaContainer.innerHTML = `<p>${dados.main.temp.toFixed(0)} °C</p>`;
         loading.innerHTML = `${cidade}`;
         outrosDados.innerHTML = `
           <p>☁️ Clima: <br>${dados.weather[0].description}</p>
@@ -87,7 +126,9 @@ function buscarClima(cidade) {
       }, 1500);
     })
     .catch(erro => {
+      console.error('Erro ao buscar clima:', erro);
       loading.innerText = 'Cidade não encontrada!';
-      console.error(erro);
+      imgBack.style.display = 'flex';
+      imgBack.innerHTML = `<img src="https://openweathermap.org/img/wn/01d@2x.png" alt="Fallback" style="width: 180px; height: 180px;">`;
     });
 }

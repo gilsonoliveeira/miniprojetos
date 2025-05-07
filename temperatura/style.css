@@ -25,11 +25,20 @@ h2 {
     margin-top: 20px;
 }
 
+.burguer-menu {
+    display: flex;
+    align-items: start;
+    justify-content: start;
+    padding: 20px;
+    cursor: pointer;
+}
+
+
+
 .background {
-    
     background-color: black;
     width: 400px;
-    height: 550px;
+    
     text-align: center;
     border-radius: 10px;
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
@@ -98,22 +107,31 @@ input[type="text"] {
     color: white;
     margin-top: 50px;
     font-size: 1.1em;
+    padding-bottom: 20px;
 
+}
+
+.search {
+    margin: 5px auto;
+    position: relative; /* Referência para posicionamento absoluto da .sugestoes */
 }
 
 
 .sugestoes {
+    position: absolute; /* Tira do fluxo normal */
+    top: 80%; /* Logo abaixo do input */
+    left: 5px;
+    right: 5px;
     list-style: none;
     padding: 0;
     margin: 0;
-    position: relative;
-    background: white;
+    background: white; /* Fundo para visibilidade */
     border: none;
-    max-height: 120px;
-    overflow-y: auto;
-    width: 100%;
-    z-index: 10;
-  }
+    border-radius: 4px;
+    max-height: 150px; /* Limita a altura */
+    overflow-y: auto; /* Rolagem se necessário */
+    z-index: 100; /* Acima de outros elementos */
+}
   
   .sugestoes li {
     padding: 10px;
@@ -125,10 +143,19 @@ input[type="text"] {
   }
 
 .init {
-    margin-top: 25%;
+    margin-top: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.contact {
+    padding: 20px;
+    
+}
+
+.contact svg {
+    margin: 2px;
 }
 
 .button-iniciar {
