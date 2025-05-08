@@ -79,6 +79,7 @@ input[type="text"] {
     border-radius: 10px;
     border: none;
     cursor: pointer;
+    background-color: white;
 
 }
 
@@ -86,6 +87,7 @@ input[type="text"] {
     margin-top: 30px;
     font-size: 3em;
     color: white;
+    
     
   
 }
@@ -96,8 +98,8 @@ input[type="text"] {
     position: relative;
     align-items: center;
     justify-content: center;
-    margin-top: 20px;
-    font-size: 1.7em;
+    margin: 5px;
+    font-size: 1.5em;
     font-weight: bold;
     color: white;
 }
@@ -106,7 +108,7 @@ input[type="text"] {
     display: grid;
     grid-template-columns: 1.1fr 1fr 1fr;
     color: white;
-    margin-top: 50px;
+    margin: 50px 5px 0px 5px;
     font-size: 1.1em;
     padding-bottom: 20px;
     
@@ -168,6 +170,7 @@ input[type="text"] {
     border-radius: 5px;
     font-size: 1.3em;
     font-weight: bolder;
+    background-color: white;
 }
 
 .button-iniciar:hover{
