@@ -38,7 +38,6 @@ h2 {
 .background {
     background-color: black;
     width: 400px;
-    height: 580px;
     text-align: center;
     border-radius: 10px;
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
@@ -80,6 +79,7 @@ input[type="text"] {
     border: none;
     cursor: pointer;
     background-color: white;
+    color: black;
 
 }
 
@@ -108,9 +108,9 @@ input[type="text"] {
     display: grid;
     grid-template-columns: 1.1fr 1fr 1fr;
     color: white;
-    margin: 50px 5px 0px 5px;
     font-size: 1.1em;
-    padding-bottom: 20px;
+    margin-bottom: 15px;
+    margin-top: 50px;
     
 
 }
@@ -154,9 +154,10 @@ input[type="text"] {
 }
 
 .contact {
-    padding: 20px;
-    
+    margin-bottom: 5px;
 }
+
+
 
 .contact svg {
     margin: 2px;
@@ -171,6 +172,7 @@ input[type="text"] {
     font-size: 1.3em;
     font-weight: bolder;
     background-color: white;
+    color: black;
 }
 
 .button-iniciar:hover{
