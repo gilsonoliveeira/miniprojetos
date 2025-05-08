@@ -11,18 +11,22 @@ const imgBack = document.querySelector('.image-back');
 const menuBurguer = document.querySelector('.burguer-menu')
 const contact = document.querySelector('.contact')
 
+const date = new Date();
+const hora = date.getHours();
+
 // Mapeamento de condições climáticas para animações Lottie
 const weatherAnimations = {
   Clear: './assets/sun.json',
   Rain: './assets/rain.json',
   Clouds: './assets/clouds.json',
-  Snow: './assets/clouds.json',
-  Thunderstorm: './assets/rain.json',
-  Drizzle: './assets/rain.json',
+  Snow: './assets/snow.json',
+  Thunderstorm: './assets/thunderstorm.json',
+  Drizzle: './assets/Drizzle.json',
   Mist: './assets/clouds.json',
   Fog: './assets/clouds.json',
   Haze: './assets/clouds.json',
   Smoke: './assets/clouds.json',
+  Moon: './assets/moon.json',
 };
 
 // Alterna da tela inicial para o app
@@ -76,7 +80,15 @@ button.addEventListener('click', () => {
 // Função para buscar clima atual da cidade
 function buscarClima(cidade) {
   const apiKey = '051d67b469bbcd3920c807d2d12ca307';
-  const url = `https://api.openweathermap.org/data/2.5/weather?q=${cidade}&appid=${apiKey}&units=metric&lang=pt_br`;
+  const geoUrl = `https://api.openweathermap.org/geo/1.0/direct?q=${cidade}&limit=1&appid=${apiKey}`;
+
+  // Esconde o conteúdo anterior
+  climaContainer.innerHTML = '';
+  outrosDados.innerHTML = '';
+  imgBack.innerHTML = '';
+  imgBack.style.display = 'none';
+
+  // Mostra loading
   loading.innerHTML = `
     <lottie-player 
         src="./assets/loading.json"
@@ -84,25 +96,38 @@ function buscarClima(cidade) {
         speed="1" 
         style="width: 200px; height: 200px" 
         loop 
-        autoplay
-        onerror="this.innerHTML='<p>Erro: Animação de loading não carregada. Verifique assets/loading.json.</p>'">
+        autoplay>
     </lottie-player>
-`;
+  `;
 
-  fetch(url)
-    .then(response => {
-      if (!response.ok) throw new Error(`Erro na API: ${response.status}`);
-      return response.json();
+  // Primeiro: pega a latitude, longitude e estado
+  fetch(geoUrl)
+    .then(res => {
+      if (!res.ok) throw new Error('Erro na geolocalização');
+      return res.json();
     })
-    .then(dados => {
-      setTimeout(() => {
-        console.log('Dados da API:', dados);
-        console.log('Condição climática:', dados.weather[0]?.main);
-        const condition = dados.weather[0]?.main || 'Clear';
-        const animationUrl = weatherAnimations[condition] || './assets/clouds.json';
-        console.log('URL da animação:', animationUrl);
+    .then(local => {
+      if (!local.length) throw new Error('Cidade não encontrada');
+      const { lat, lon, state, name, country } = local[0];
 
-        // Tenta carregar a animação Lottie
+      // Agora busca o clima com base na latitude e longitude
+      const climaUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric&lang=pt_br`;
+
+      return fetch(climaUrl).then(res => {
+        if (!res.ok) throw new Error('Erro ao buscar clima');
+        return res.json().then(dados => ({ dados, state, name, country }));
+      });
+    })
+    .then(({ dados, state, name, country }) => {
+      setTimeout(() => {
+        const condition = dados.weather[0]?.main || 'Clear';
+        let animationUrl = weatherAnimations[condition] || './assets/clouds.json';
+
+        if (hora >= 18 || hora < 6) {
+            animationUrl ='./assets/moon.json';
+          }
+
+
         imgBack.style.display = 'flex';
         imgBack.innerHTML = `
           <lottie-player 
@@ -111,13 +136,12 @@ function buscarClima(cidade) {
             speed="1" 
             style="width: 180px; height: 180px;" 
             loop 
-            autoplay
-            onerror="this.innerHTML='<img src=https://openweathermap.org/img/wn/01d@2x.png alt=Fallback style=width:180px;height:180px;>'">
+            autoplay>
           </lottie-player>
         `;
 
-        climaContainer.innerHTML = `<p>${dados.main.temp.toFixed(0)} °C</p>`;
-        loading.innerHTML = `${cidade}`;
+        climaContainer.innerHTML = `<p>${dados.main.temp.toFixed(0)}°C</p>`;
+        loading.innerHTML = `${name} - ${state}, <br> ${country}`;
         outrosDados.innerHTML = `
           <p>☁️ Clima: <br>${dados.weather[0].description}</p>
           <p>💧 Umidade: <br>${dados.main.humidity}%</p>
