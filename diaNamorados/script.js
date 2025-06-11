@@ -63,7 +63,7 @@ function carregaImagem() {
   }
 
   trocarImagem(); // Exibe uma imediatamente
-  setInterval(trocarImagem, 3000); // 
+  setInterval(trocarImagem, 4000); // 
 }
 
 carregaImagem();
