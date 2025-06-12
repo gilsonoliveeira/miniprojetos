@@ -18,19 +18,12 @@ body {
 
 button {
   font-family: sans-serif;
-  color: white;
-  background-color: transparent;
   border: 3px solid aqua;
   border-radius: 5px;
   box-shadow: 0 0 5px aqua, 0 0 5px aqua, 0 0 5px aqua, 0 0 10px aqua;
   padding: 10px 20px;
   cursor: pointer;
   font-size: 19px;
-  width: 170px;
 }
 
-button:hover {
-  background-color: aqua;
-  color: black;
-  transition: 0.3s;
-}
+
