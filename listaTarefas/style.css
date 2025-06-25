@@ -18,49 +18,101 @@ body {
 
 .myTask {
   width: 600px;
-  background-color: #FCDE9C;
+  background-color: #fcde9c;
   border-radius: 10px;
 }
 
-
-.addTask{
-    display: flex;
-    flex-direction: column;
-    margin: 20px;
+.addTask {
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
 }
 
-h1{
-    text-align: center;
-    margin: 20px;
-
+h1 {
+  text-align: center;
+  margin: 20px;
 }
 
 label {
-    display: block;
-    font-size: 1.5em;
-    margin: 15px 30px;
+  display: block;
+  font-size: 1.5em;
+  margin: 15px 30px;
 }
 
 input {
-    display: block;
-    margin: auto;
-    width: 500px;
-    height: 40px;
-    border-radius: 5px;
-    border: 1px solid black;
-    font-size: 1.4em;
-    background-color: rgba(255, 255, 255, 0.521);
-    padding: 5px;
+  display: block;
+  margin: auto;
+  width: 500px;
+  height: 40px;
+  border-radius: 5px;
+  border: 1px solid black;
+  font-size: 1.4em;
+  background-color: rgba(255, 255, 255, 0.521);
+  padding: 5px;
 }
 
+#submit {
+  background-color: rgba(16, 151, 16, 0.801);
+  height: 40px;
+  border-radius: 10px;
+  color: white;
+  font: bolder;
+  font-size: medium;
+  margin: 20px 0;
+  border: none;
+  cursor: pointer;
+}
 
-button {
-    background-color: rgba(16, 151, 16, 0.801);
-    height: 40px;
-    border-radius: 10px;
-    color: white;
-    font: bolder;
-    font-size: medium;
-    margin: 20px 0;
-    border: none;
+.taskList {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  list-style-type: none;
+  font-size: 1.2em;
+}
+
+/* Estilo do item da tarefa */
+.taskList li.task-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+  max-width: 560px;
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: #fff;
+  border-radius: 8px;
+  word-break: break-word;
+}
+
+/* Estilo para tarefa concluída */
+.taskList li.completed {
+  text-decoration: line-through;
+  opacity: 0.6;
+  background-color:rgba(16, 151, 16, 0.801);
+}
+
+/* Botão OK */
+.ok-button {
+  width: 70px;
+  height: 30px;
+  background-color: rgba(16, 151, 16, 0.801);
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  font-size: 1em;
+}
+
+/* Botão Remover */
+.remove-button {
+  width: 70px;
+  height: 30px;
+  background-color: rgba(255, 0, 0, 0.582);
+  cursor: pointer;
+  margin-left: 10px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1em;
 }
