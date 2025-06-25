@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lista de Tarefas</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main>
+      <div class="myTask">
+        <div class="addTask">
+          <h1>Minha Lista de Tarefas</h1>
+
+          <label for="tarefa">Nova Tarefa</label>
+          <input
+            type="text"
+            id="tarefa"
+            name="tarefa"
+            placeholder="Digite a Tarefa..."
+          />
+
+          <label for="idate">Data</label>
+          <input type="date" name="idate" id="idate" />
+
+          <label for="itime">Horário</label>
+          <input type="time" name="itime" id="itime" />
+
+          <button type="submit">Adicionar Tarefa</button>
+        </div>
+
+        <div class="result">
+          <!-- Aqui aparecerá a lista de tarefas -->
+        </div>
+      </div>
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>
