@@ -8,13 +8,18 @@ let valorCaixaAtual = 0; // Mantida no escopo global
 // Carrega os produtos do localStorage e adiciona as entradas na tela
 window.onload = function () {
   const movimentacoes = JSON.parse(localStorage.getItem("movimentacoes")) || [];
-  
 
   movimentacoes.forEach((mov) => {
     if (mov.tipo === "entrada") {
       adicionarEntrada(mov.nome, mov.descricao, mov.preco);
     } else if (mov.tipo === "saida") {
       adicionarSaida(mov.nome, mov.descricao, mov.preco);
+    } else if (mov.tipo === "venda") {
+      const nomesProdutos = Array.isArray(mov.produtos)
+        ? mov.produtos.map((prod) => prod.nome).join(", ")
+        : "Nenhum produto";
+
+      adicionarVenda(mov.nome, mov.produtos, mov.valor);
     }
   });
 };
@@ -82,6 +87,32 @@ function adicionarSaida(nomeProduto, descricao, preco) {
 }
 
 window.adicionarSaida = adicionarSaida;
+
+function adicionarVenda(nomeCliente, produtos, totalValor) {
+  totalValor = parseFloat(totalValor) || 0;
+
+  const novaMovimentacao = document.createElement("div");
+  novaMovimentacao.classList.add("movimento");
+  novaMovimentacao.innerHTML = `
+    <div class="barra cor-azul"></div>
+    <div class="info">
+      <strong>${nomeCliente}</strong>
+      <p>Itens: ${produtos}</p>
+    </div>
+    <span class="valor azul">R$${totalValor.toFixed(2).replace(".", ",")}</span>
+    <div class="opcoes">
+      <button class="editar" onclick="toggleOpcoes(this)">📝</button>
+      <button class="excluir" onclick="toggleOpcoes(this)">🗑️</button>
+    </div>
+  `;
+
+  const container = document.querySelector(".movimentacoes");
+  if (container) {
+    container.appendChild(novaMovimentacao);
+  }
+}
+
+window.adicionarVenda = adicionarVenda;
 
 if (botaoCaixa) {
   botaoCaixa.addEventListener("click", () => {
@@ -196,8 +227,8 @@ window.addEventListener("DOMContentLoaded", () => {
   const valorCaixaEl = document.getElementById("valor-caixa");
   if (valorCaixaEl) {
     const valorCaixaAtual = totalEntrada - totalSaida;
-    valorCaixaEl.textContent = `R$${valorCaixaAtual.toFixed(2).replace(".", ",")}`;
+    valorCaixaEl.textContent = `R$${valorCaixaAtual
+      .toFixed(2)
+      .replace(".", ",")}`;
   }
 });
-
-
