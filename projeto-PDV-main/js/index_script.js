@@ -9,6 +9,7 @@ let valorCaixaAtual = 0; // Mantida no escopo global
 window.onload = function () {
   const movimentacoes = JSON.parse(localStorage.getItem("movimentacoes")) || [];
 
+
   movimentacoes.forEach((mov) => {
     if (mov.tipo === "entrada") {
       adicionarEntrada(mov.nome, mov.descricao, mov.preco);
@@ -97,9 +98,9 @@ function adicionarVenda(nomeCliente, produtos, totalValor) {
     <div class="barra cor-azul"></div>
     <div class="info">
       <strong>${nomeCliente}</strong>
-      <p>Itens: ${produtos}</p>
+      <p>Itens: ${produtos.map(p => p.nome +' '+ '['  + p.quantidade + 'x' + ']').join(", ")}</p>
     </div>
-    <span class="valor azul">R$${totalValor.toFixed(2).replace(".", ",")}</span>
+    <span class="valor verde">R$${totalValor.toFixed(2).replace(".", ",")}</span>
     <div class="opcoes">
       <button class="editar" onclick="toggleOpcoes(this)">📝</button>
       <button class="excluir" onclick="toggleOpcoes(this)">🗑️</button>
@@ -113,6 +114,32 @@ function adicionarVenda(nomeCliente, produtos, totalValor) {
 }
 
 window.adicionarVenda = adicionarVenda;
+
+window.addEventListener("DOMContentLoaded", () => {
+  const movimentacoes = JSON.parse(localStorage.getItem("movimentacoes")) || [];
+
+  const totalEntrada = somarEntradas(movimentacoes);
+  const totalSaida = somarSaidas(movimentacoes);
+
+  const resumoEntrada = document.querySelector(".resumo-entrada");
+  if (resumoEntrada) {
+    resumoEntrada.textContent = `+${totalEntrada.toFixed(2).replace(".", ",")}`;
+  }
+
+  const resumoSaida = document.querySelector(".resumo-saida");
+  if (resumoSaida) {
+    resumoSaida.textContent = `-${totalSaida.toFixed(2).replace(".", ",")}`;
+  }
+
+  const valorCaixaEl = document.getElementById("valor-caixa");
+  if (valorCaixaEl) {
+    valorCaixaAtual = totalEntrada - totalSaida;
+    valorCaixaEl.textContent = `R$${valorCaixaAtual
+      .toFixed(2)
+      .replace(".", ",")}`;
+  }
+
+});
 
 if (botaoCaixa) {
   botaoCaixa.addEventListener("click", () => {
@@ -207,28 +234,3 @@ if (btnCancelar) {
     if (modalExcluir) modalExcluir.style.display = "none";
   });
 }
-
-window.addEventListener("DOMContentLoaded", () => {
-  const movimentacoes = JSON.parse(localStorage.getItem("movimentacoes")) || [];
-
-  const totalEntrada = somarEntradas(movimentacoes);
-  const totalSaida = somarSaidas(movimentacoes);
-
-  const resumoEntrada = document.querySelector(".resumo-entrada");
-  if (resumoEntrada) {
-    resumoEntrada.textContent = `+${totalEntrada.toFixed(2).replace(".", ",")}`;
-  }
-
-  const resumoSaida = document.querySelector(".resumo-saida");
-  if (resumoSaida) {
-    resumoSaida.textContent = `-${totalSaida.toFixed(2).replace(".", ",")}`;
-  }
-
-  const valorCaixaEl = document.getElementById("valor-caixa");
-  if (valorCaixaEl) {
-    const valorCaixaAtual = totalEntrada - totalSaida;
-    valorCaixaEl.textContent = `R$${valorCaixaAtual
-      .toFixed(2)
-      .replace(".", ",")}`;
-  }
-});

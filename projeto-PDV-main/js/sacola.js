@@ -99,10 +99,17 @@ document
     //Verifica se o cliente foi informado
     const nomeCliente = document.getElementById("cliente").value;
     if (!nomeCliente) {
-      alert("Por favor, informe o nome do cliente.");
+      carregarModalNome();
       return;
     }
-    alert("Venda finalizada com sucesso!");
+
+    carregarModalSucesso();
+
+    setTimeout(() => {
+      window.location.href = "index.html";
+      
+    }, 3000);
+    
 
     // Salva a venda no localStorage
     const movimentacoes =
@@ -122,13 +129,11 @@ document
 
     localStorage.setItem("movimentacoes", JSON.stringify(movimentacoes));
 
-    adicionarVenda(nomeCliente, totalItens, totalValor);
+    adicionarVenda(nomeCliente, produtos, totalValor);
 
     // Limpa a sacola após finalizar a venda
     localStorage.removeItem("sacola");
     sacola.length = 0;
     lista.innerHTML = "";
     atualizarResumoVenda();
-
-    window.location.href = "index.html";
   });

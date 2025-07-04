@@ -73,10 +73,6 @@ document.addEventListener("click", function (evento) {
     }
   }
 
-
-
-
-
 });
 
 renderizarProdutos();

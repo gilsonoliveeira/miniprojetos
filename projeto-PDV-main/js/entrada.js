@@ -25,11 +25,21 @@ function validarEntrada() {
 }
 
 function somarEntradas(movimentacoes) {
-  const entradas = movimentacoes.filter(mov => mov.tipo === "entrada");
-  return entradas.reduce((total, entrada) => total + (parseFloat(entrada.preco) || 0), 0);
+  const entradas = movimentacoes.filter((mov) => mov.tipo === "entrada");
+  const vendas = movimentacoes.filter((mov) => mov.tipo === "venda");
+  const somaEntradas = entradas.reduce(
+    (total, entrada) => total + (parseFloat(entrada.preco) || 0),
+    0
+  );
+
+  const somaVendas = vendas.reduce(
+    (total, venda) => total + (parseFloat(venda.valor) || 0),
+    0
+  );
+
+  return somaVendas + somaEntradas;
 }
 window.somarEntradas = somarEntradas;
-
 
 function salvarNoLocalStorage(produto) {
   let produtosSalvos = JSON.parse(localStorage.getItem("movimentacoes")) || [];
@@ -49,18 +59,19 @@ confirmar.addEventListener("click", function (event) {
 
     salvarNoLocalStorage(produto); // <- Aqui salva
 
-    console.log("Produto adicionado:", produto);
-    alert("Produto adicionado com sucesso!");
+    carregarModalSucesso(); // Carrega o modal
+
+    setTimeout(() => {
+      window.location.href = "index.html";
+      nomeProduto.value = "";
+      descricao.value = "";
+      preco.value = "";
+    }, 3000);
 
     // Atualiza o valor na interface
     valorEntrada.textContent = `R$${produto.preco.toFixed(2)}`;
 
     // Chama a função para adicionar a entrada
     adicionarEntrada(produto.nome, produto.descricao, produto.preco);
-    
-    // Limpa o formulário 
-    nomeProduto.value = "";
-    descricao.value = "";
-    preco.value = "";
   }
 });
