@@ -31,13 +31,10 @@ Futuramente, o projeto poderá ser integrado a um banco de dados real com back-e
 
 ## 📸 Capturas de Tela
 
-(Adicione aqui imagens ou GIFs mostrando o sistema funcionando)
-
----
 
 ## 🛡️ Direitos Autorais
 
-Este projeto é de autoria de **Victor Henrique** e está protegido pela **Lei de Direitos Autorais (Lei nº 9.610/98 - Brasil)**.  
+Este projeto é de autoria de **Gilson Oliveira** e está protegido pela **Lei de Direitos Autorais (Lei nº 9.610/98 - Brasil)**.  
 A reprodução, cópia, redistribuição ou uso comercial deste sistema sem autorização expressa do autor é **estritamente proibida**.
 
 Todos os arquivos, códigos e ideias aqui contidos são de propriedade intelectual do autor.
@@ -49,4 +46,4 @@ Se desejar utilizar este sistema comercialmente ou colaborar com o desenvolvimen
 
 ---
 
-> 📬 **Contato do autor**: [seuemail@exemplo.com] (substitua com seu email real, se desejar)
+> 📬 **Contato do autor**: [gilsonoliveira.dev@gmail.com] 
