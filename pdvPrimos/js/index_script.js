@@ -44,7 +44,7 @@ function adicionarEntrada(nomeProduto, descricao, preco) {
   novaMovimentacao.innerHTML = `
     <div class="barra cor-verde"></div>
     <div class="info">
-      <strong>${nomeProduto}</strong>
+      <strong>Cliente: ${nomeProduto}</strong>
       <p>${descricao}</p>
     </div>
     <span class="valor verde">R$${preco.toFixed(2).replace(".", ",")}</span>

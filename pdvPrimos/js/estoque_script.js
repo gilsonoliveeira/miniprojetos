@@ -1,4 +1,41 @@
 document.addEventListener("DOMContentLoaded", function () {
+  const produtosPreCarregados = [
+    {
+      id: 1,
+      imagem: "./images/pomada.jpg",
+      nome: "Pomada",
+      quantidade: 5,
+      valor: 20,
+    },
+    {
+      id: 2,
+      imagem: "./images/shampoo.jpg",
+      nome: "Shampoo",
+      quantidade: 3,
+      valor: 15,
+    },
+    {
+      id: 3,
+      imagem: "./images/batata.jpg",
+      nome: "Batata Croques",
+      quantidade: 10,
+      valor: 5,
+    },
+  ];
+
+  // Recupera os produtos já salvos ou um array vazio
+  let produtosSalvos = JSON.parse(localStorage.getItem("produtos")) || [];
+
+  // Verifica se os produtos pré-carregados já existem
+  produtosPreCarregados.forEach((pre) => {
+    const existe = produtosSalvos.some((p) => p.id === pre.id);
+    if (!existe) {
+      produtosSalvos.push(pre);
+    }
+  });
+
+  localStorage.setItem("produtos", JSON.stringify(produtosSalvos));
+
   const container = document.querySelector(".estoque");
   let produtos = JSON.parse(localStorage.getItem("produtos")) || [];
   let idParaExcluir = null;
