@@ -1,6 +1,42 @@
+
 const produtos = JSON.parse(localStorage.getItem("produtos")) || [];
 
 function renderizarProdutos() {
+  const produtosPreCarregados = [
+    {
+      id: 1,
+      imagem: "./images/pomada.jpg",
+      nome: "Pomada",
+      quantidade: 5,
+      valor: 20,
+    },
+    {
+      id: 2,
+      imagem: "./images/shampoo.jpg",
+      nome: "Shampoo",
+      quantidade: 3,
+      valor: 15,
+    },
+    {
+      id: 3,
+      imagem: "./images/batata.jpg",
+      nome: "Batata Croques",
+      quantidade: 10,
+      valor: 5,
+    },
+  ];
+
+  // Recupera os produtos já salvos ou um array vazio
+  let produtosSalvos = JSON.parse(localStorage.getItem("produtos")) || [];
+
+  // Verifica se os produtos pré-carregados já existem
+  produtosPreCarregados.forEach((pre) => {
+    const existe = produtosSalvos.some((p) => p.id === pre.id);
+    if (!existe) {
+      produtosSalvos.push(pre);
+    }
+  })
+
   const produtosContainer = document.querySelector(".produtos-grid");
   produtosContainer.innerHTML = "";
 
@@ -10,9 +46,13 @@ function renderizarProdutos() {
     produtoDiv.setAttribute("data-nome", produto.nome);
     produtoDiv.setAttribute("data-preco", parseFloat(produto.valor).toFixed(2));
     produtoDiv.setAttribute("data-quantidade", produto.quantidade || 0);
+    produtoDiv.setAttribute("imagem", produto.imagem || produto.nome);
 
     produtoDiv.innerHTML = `
-      <img src="${produto.imagem || "imagens/placeholder.png"}" alt="${produto.nome}">
+      <span> ${produto.nome}</span>
+      <img src="${produto.imagem || "./images/semimagem.jpg"}" alt="${
+      produto.nome
+    }">
       <p>R$ ${parseFloat(produto.valor).toFixed(2)}</p>
       <div class="controle-quantidade">
         <button class="menos">−</button>
@@ -31,7 +71,9 @@ function atualizarResumoVenda() {
   let totalValor = 0;
 
   produtos.forEach((produto) => {
-    const quantidade = parseInt(produto.querySelector(".quantidade").textContent);
+    const quantidade = parseInt(
+      produto.querySelector(".quantidade").textContent
+    );
     const preco = parseFloat(produto.getAttribute("data-preco"));
 
     totalItens += quantidade;
@@ -72,11 +114,9 @@ document.addEventListener("click", function (evento) {
       atualizarResumoVenda();
     }
   }
-
 });
 
 renderizarProdutos();
-
 
 document.querySelector(".botao-ver-sacola").addEventListener("click", () => {
   const produtos = document.querySelectorAll(".item-produto");
@@ -85,15 +125,15 @@ document.querySelector(".botao-ver-sacola").addEventListener("click", () => {
   produtos.forEach((produto) => {
     const nome = produto.getAttribute("data-nome");
     const preco = parseFloat(produto.getAttribute("data-preco"));
-    const quantidade = parseInt(produto.querySelector(".quantidade").textContent);
+    const quantidade = parseInt(
+      produto.querySelector(".quantidade").textContent
+    );
+    const imagem = produto.getAttribute("imagem");
 
     if (quantidade > 0) {
-      sacola.push({ nome, preco, quantidade });
+      sacola.push({ nome, preco, quantidade, imagem });
     }
   });
 
   localStorage.setItem("sacola", JSON.stringify(sacola));
 });
-
-
-

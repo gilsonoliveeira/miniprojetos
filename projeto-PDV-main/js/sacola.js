@@ -8,7 +8,7 @@ sacola.forEach((produto) => {
   item.classList.add("item-sacola");
 
   item.innerHTML = `
-    <img src="img/produto1.png" alt="">
+    <img src="${produto.imagem}" alt="${produto.nome}">
     <div class="info">
         <strong>${produto.nome}</strong>
         <p>R$ ${produto.preco.toFixed(2)}</p>

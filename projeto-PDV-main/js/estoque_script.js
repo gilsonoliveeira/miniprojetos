@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     const img = document.createElement("img");
-    img.src = produto.imagem || "img/placeholder.png";
+    img.src = produto.imagem || `./images/semimagem.jpg`;
     img.alt = produto.nome;
 
     const infoDiv = document.createElement("div");

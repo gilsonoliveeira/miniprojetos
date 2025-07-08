@@ -130,7 +130,7 @@ nav button {
 
 .opcoes {
     display: none;
-    margin-top: 10px;
+    flex-direction: row;
     text-align: right;
     gap: 8px;
 }

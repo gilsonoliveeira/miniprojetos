@@ -8,8 +8,7 @@ let valorCaixaAtual = 0; // Mantida no escopo global
 // Carrega os produtos do localStorage e adiciona as entradas na tela
 window.onload = function () {
   const movimentacoes = JSON.parse(localStorage.getItem("movimentacoes")) || [];
-
-
+  
   movimentacoes.forEach((mov) => {
     if (mov.tipo === "entrada") {
       adicionarEntrada(mov.nome, mov.descricao, mov.preco);
@@ -55,6 +54,14 @@ function adicionarEntrada(nomeProduto, descricao, preco) {
     </div>
   `;
 
+  novaMovimentacao.addEventListener("click", function (e) {
+    if (e.target.tagName === "BUTTON") return;
+    const opcoes = this.querySelector(".opcoes");
+    if (opcoes) {
+      opcoes.style.display = opcoes.style.display === "none" || opcoes.style.display === "" ? "flex" : "none";
+    }
+  });
+
   const container = document.querySelector(".movimentacoes");
   if (container) {
     container.appendChild(novaMovimentacao);
@@ -80,6 +87,15 @@ function adicionarSaida(nomeProduto, descricao, preco) {
       <button class="excluir" onclick="toggleOpcoes(this)">🗑️</button>
     </div>
   `;
+
+  // Adiciona evento para mostrar/ocultar botões ao clicar na movimentação
+  novaMovimentacao.addEventListener("click", function (e) {
+    if (e.target.tagName === "BUTTON") return;
+    const opcoes = this.querySelector(".opcoes");
+    if (opcoes) {
+      opcoes.style.display = opcoes.style.display === "none" || opcoes.style.display === "" ? "flex" : "none";
+    }
+  });
 
   const container = document.querySelector(".movimentacoes");
   if (container) {
@@ -107,11 +123,21 @@ function adicionarVenda(nomeCliente, produtos, totalValor) {
     </div>
   `;
 
+  // Adiciona evento para mostrar/ocultar botões ao clicar na movimentação
+  novaMovimentacao.addEventListener("click", function (e) {
+    if (e.target.tagName === "BUTTON") return;
+    const opcoes = this.querySelector(".opcoes");
+    if (opcoes) {
+      opcoes.style.display = opcoes.style.display === "none" || opcoes.style.display === "" ? "flex" : "none";
+    }
+  });
+
   const container = document.querySelector(".movimentacoes");
   if (container) {
     container.appendChild(novaMovimentacao);
   }
 }
+
 
 window.adicionarVenda = adicionarVenda;
 
