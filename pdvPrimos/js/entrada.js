@@ -47,10 +47,13 @@ function salvarNoLocalStorage(produto) {
   localStorage.setItem("movimentacoes", JSON.stringify(produtosSalvos));
 }
 
+let id = Date.now(); // Gera id com base na hora atual.
+
 confirmar.addEventListener("click", function (event) {
   event.preventDefault();
   if (validarEntrada()) {
     const produto = {
+      id,
       nome: nomeProduto.value,
       descricao: descricao.value,
       preco: parseFloat(preco.value),

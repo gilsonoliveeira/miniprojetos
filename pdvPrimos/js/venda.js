@@ -1,6 +1,7 @@
 
 const produtos = JSON.parse(localStorage.getItem("produtos")) || [];
 
+
 function renderizarProdutos() {
   const produtosPreCarregados = [
     {
@@ -36,6 +37,9 @@ function renderizarProdutos() {
       produtosSalvos.push(pre);
     }
   })
+
+  localStorage.setItem("produtos", JSON.stringify(produtosSalvos));
+
 
   const produtosContainer = document.querySelector(".produtos-grid");
   produtosContainer.innerHTML = "";

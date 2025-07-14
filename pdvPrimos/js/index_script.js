@@ -8,7 +8,7 @@ let valorCaixaAtual = 0; // Mantida no escopo global
 // Carrega os produtos do localStorage e adiciona as entradas na tela
 window.onload = function () {
   const movimentacoes = JSON.parse(localStorage.getItem("movimentacoes")) || [];
-  
+
   movimentacoes.forEach((mov) => {
     if (mov.tipo === "entrada") {
       adicionarEntrada(mov.nome, mov.descricao, mov.preco);
@@ -31,7 +31,36 @@ function addData() {
   const mes = String(dataCaixa.getMonth() + 1).padStart(2, "0");
   const ano = dataCaixa.getFullYear();
   const dataFormatada = `${dia}/${mes}/${ano}`;
-  document.getElementById("data-caixa").innerHTML = `<h2>${dataFormatada}</h2>`;
+  let diaSemana = dataCaixa.getDay();
+  switch (diaSemana) {
+    case 0:
+      diaSemana = "Domingo";
+      break;
+    case 1:
+      diaSemana = "Segunda-Feira";
+      break;
+    case 2:
+      diaSemana = "Terça-Feira";
+      break;
+    case 3:
+      diaSemana = "Quarta-Feira";
+      break;
+    case 4:
+      diaSemana = "Quinta-Feira";
+      break;
+    case 5:
+      diaSemana = "Sexta-Feira";
+      break;
+    case 6:
+      diaSemana = "Sábado";
+    default:
+      diaSemana = "";
+      break;
+  }
+
+  document.getElementById(
+    "data-caixa"
+  ).innerHTML = `<h2>${dataFormatada} - ${diaSemana} </h2>`;
 }
 
 addData();
@@ -49,8 +78,7 @@ function adicionarEntrada(nomeProduto, descricao, preco) {
     </div>
     <span class="valor verde">R$${preco.toFixed(2).replace(".", ",")}</span>
     <div class="opcoes">
-      <button class="editar" onclick="toggleOpcoes(this)">📝</button>
-      <button class="excluir" onclick="toggleOpcoes(this)">🗑️</button>
+      <button class="excluir">🗑️</button>
     </div>
   `;
 
@@ -58,7 +86,10 @@ function adicionarEntrada(nomeProduto, descricao, preco) {
     if (e.target.tagName === "BUTTON") return;
     const opcoes = this.querySelector(".opcoes");
     if (opcoes) {
-      opcoes.style.display = opcoes.style.display === "none" || opcoes.style.display === "" ? "flex" : "none";
+      opcoes.style.display =
+        opcoes.style.display === "none" || opcoes.style.display === ""
+          ? "flex"
+          : "none";
     }
   });
 
@@ -83,8 +114,7 @@ function adicionarSaida(nomeProduto, descricao, preco) {
     </div>
     <span class="valor vermelho">R$${preco.toFixed(2).replace(".", ",")}</span>
     <div class="opcoes">
-      <button class="editar" onclick="toggleOpcoes(this)">📝</button>
-      <button class="excluir" onclick="toggleOpcoes(this)">🗑️</button>
+      <button class="excluir">🗑️</button>
     </div>
   `;
 
@@ -93,7 +123,10 @@ function adicionarSaida(nomeProduto, descricao, preco) {
     if (e.target.tagName === "BUTTON") return;
     const opcoes = this.querySelector(".opcoes");
     if (opcoes) {
-      opcoes.style.display = opcoes.style.display === "none" || opcoes.style.display === "" ? "flex" : "none";
+      opcoes.style.display =
+        opcoes.style.display === "none" || opcoes.style.display === ""
+          ? "flex"
+          : "none";
     }
   });
 
@@ -114,11 +147,14 @@ function adicionarVenda(nomeCliente, produtos, totalValor) {
     <div class="barra cor-azul"></div>
     <div class="info">
       <strong>${nomeCliente}</strong>
-      <p>Itens: ${produtos.map(p => p.nome +' '+ '['  + p.quantidade + 'x' + ']').join(", ")}</p>
+      <p>Itens: ${produtos
+        .map((p) => p.nome + " " + "[" + p.quantidade + "x" + "]")
+        .join(", ")}</p>
     </div>
-    <span class="valor verde">R$${totalValor.toFixed(2).replace(".", ",")}</span>
+    <span class="valor verde">R$${totalValor
+      .toFixed(2)
+      .replace(".", ",")}</span>
     <div class="opcoes">
-      <button class="editar" onclick="toggleOpcoes(this)">📝</button>
       <button class="excluir" onclick="toggleOpcoes(this)">🗑️</button>
     </div>
   `;
@@ -128,7 +164,10 @@ function adicionarVenda(nomeCliente, produtos, totalValor) {
     if (e.target.tagName === "BUTTON") return;
     const opcoes = this.querySelector(".opcoes");
     if (opcoes) {
-      opcoes.style.display = opcoes.style.display === "none" || opcoes.style.display === "" ? "flex" : "none";
+      opcoes.style.display =
+        opcoes.style.display === "none" || opcoes.style.display === ""
+          ? "flex"
+          : "none";
     }
   });
 
@@ -137,7 +176,6 @@ function adicionarVenda(nomeCliente, produtos, totalValor) {
     container.appendChild(novaMovimentacao);
   }
 }
-
 
 window.adicionarVenda = adicionarVenda;
 
@@ -164,7 +202,6 @@ window.addEventListener("DOMContentLoaded", () => {
       .toFixed(2)
       .replace(".", ",")}`;
   }
-
 });
 
 if (botaoCaixa) {
@@ -199,8 +236,38 @@ if (botaoCadeado) {
 }
 
 function abrirModal(numero) {
+  const produtos = JSON.parse(localStorage.getItem("produtos")) || [];
   const modal = document.getElementById(`modal${numero}`);
   if (modal) modal.style.display = "flex";
+  if (numero === 2) {
+    let estoque = document.querySelector(".estoque-simulacao");
+    estoque.innerHTML = "";
+    produtos.forEach((p) => {
+      const produto = document.createElement("p");
+      produto.textContent = `${p.nome} - ${p.quantidade} un.`;
+      estoque.appendChild(produto);
+    });
+  }
+  if (numero === 3) {
+    const valorEl = document.querySelector("#valor-caixa");
+    const modalBox = document.querySelector("#modal3 .modal-box");
+    const paragrafo = modalBox.querySelector("p"); 
+
+    if (valorEl && modalBox && paragrafo) {
+      const valor = valorEl.textContent;
+
+      // Remover <strong> anterior, se existir (opcional)
+      const strongAntigo = modalBox.querySelector("p + strong");
+      if (strongAntigo) strongAntigo.remove();
+
+      // Criar novo <strong>
+      const valorCaixa = document.createElement("strong");
+      valorCaixa.textContent = valor;
+
+      // Inserir logo após o <p>
+      paragrafo.insertAdjacentElement("afterend", valorCaixa);
+    }
+  }
 }
 
 function fecharModal(numero) {
@@ -225,20 +292,6 @@ function finalizarFechamento() {
   if (container) container.innerHTML = "<h3>Movimentações</h3>";
 }
 
-let movimentoParaExcluir = null;
-
-document.querySelectorAll(".movimento").forEach((mov) => {
-  mov.addEventListener("click", (e) => {
-    const botao = e.target;
-    if (botao.classList.contains("excluir")) {
-      e.stopPropagation();
-      movimentoParaExcluir = botao.closest(".movimento");
-      const modalExcluir = document.getElementById("modal-excluir");
-      if (modalExcluir) modalExcluir.style.display = "flex";
-    }
-  });
-});
-
 const btnConfirmar = document.getElementById("confirmar-exclusao");
 const btnCancelar = document.getElementById("cancelar-exclusao");
 
@@ -260,3 +313,18 @@ if (btnCancelar) {
     if (modalExcluir) modalExcluir.style.display = "none";
   });
 }
+
+let movimentoParaExcluir = null;
+
+document.querySelector(".movimentacoes").addEventListener("click", (e) => {
+  const botao = e.target;
+
+  // Se clicou na lixeira
+  if (botao.classList.contains("excluir")) {
+    e.stopPropagation();
+    movimentoParaExcluir = botao.closest(".movimento");
+
+    const modalExcluir = document.getElementById("modal-excluir");
+    if (modalExcluir) modalExcluir.style.display = "flex";
+  }
+});

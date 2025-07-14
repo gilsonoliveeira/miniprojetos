@@ -26,6 +26,7 @@ function somarSaidas(movimentacoes) {
 window.somarSaidas = somarSaidas; // Expor a função globalmente
 
 botaoConfirmar.addEventListener("click", () => {
+  let id = Math.floor(Math.random() * 1000);
   if (validarCampos()) {
     const saidas = JSON.parse(localStorage.getItem("movimentacoes")) || [];
     const novaSaida = {
@@ -33,6 +34,7 @@ botaoConfirmar.addEventListener("click", () => {
       descricao: info.value.trim(),
       preco: parseFloat(valor.value),
       tipo: "saida",
+      id: id,
     };
     saidas.push(novaSaida);
     localStorage.setItem("movimentacoes", JSON.stringify(saidas));
@@ -44,7 +46,7 @@ botaoConfirmar.addEventListener("click", () => {
       nome.value = "";
       info.value = "";
       preco.value = "";
-    }, 3000);
+    }, 2000);
 
     adicionarSaida(novaSaida.nome, novaSaida.descricao, novaSaida.preco);
   }

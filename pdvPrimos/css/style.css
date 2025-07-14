@@ -296,6 +296,10 @@ hr {
   font-size: 18px;
 }
 
+.excluir{
+  margin-left: 10px;
+}
+
 .titulo-formulario {
   text-align: center;
   margin-top: 16px;
@@ -642,4 +646,11 @@ hr {
   background-color: rgb(238, 255, 0);
   transition: 0.5s all;
   border: 2px solid black;
+}
+
+@media (max-width: 768px) {
+  .produtos-grid {
+    grid-template-columns: repeat(2, 1fr);
+
+  }
 }
