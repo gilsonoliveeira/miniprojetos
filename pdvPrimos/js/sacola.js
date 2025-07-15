@@ -3,6 +3,16 @@ const lista = document.querySelector(".sacola-lista");
 
 lista.innerHTML = ""; // Limpa antes de preencher
 
+//Verifica se tem itens na sacola //
+if (sacola.length === 0) {
+  const item = document.createElement("div");
+  item.classList.add("item-sacola");
+  item.innerHTML = `<strong>Sem itens no carrinho!</strong>`;
+  item.style.color = "red";
+  item.style.justifyContent = "center";
+  lista.appendChild(item);
+}
+
 sacola.forEach((produto) => {
   const item = document.createElement("div");
   item.classList.add("item-sacola");
@@ -56,11 +66,22 @@ document.addEventListener("click", function (evento) {
       quantidadeSpan.textContent = quantidade;
       atualizarResumoVenda();
     } else {
-      alert("Quantidade mínima atingida!");
+      carregarModal("Quantidade mínima atingida!");
     }
   } else if (evento.target.classList.contains("excluir")) {
     const item = evento.target.closest(".item-sacola");
     item.remove();
+
+    //Verifica se ainda há itens no carrinho após apagar o ultimo produto do carrinho //
+    const itensRestantes = document.querySelectorAll(".item-sacola");
+    if (itensRestantes.length === 0) {
+      const mensagem = document.createElement("div");
+      mensagem.classList.add("item-sacola");
+      mensagem.innerHTML = `<strong>Sem itens no carrinho!</strong>`;
+      mensagem.style.color = "red";
+      mensagem.style.justifyContent = "center";
+      lista.appendChild(mensagem);
+    }
 
     atualizarResumoVenda();
   }
@@ -92,24 +113,22 @@ document
   .querySelector(".botao-ver-sacola")
   .addEventListener("click", function () {
     if (sacola.length === 0) {
-      alert("Sua sacola está vazia!");
+      carregarModal("❌Seu carrinho está vazio!");
       return;
     }
 
     //Verifica se o cliente foi informado
     const nomeCliente = document.getElementById("cliente").value;
     if (!nomeCliente) {
-      carregarModalNome();
+      carregarModal("❌Por favor, preencha o nome do cliente!");
       return;
     }
 
-    carregarModalSucesso();
+    carregarModal("Salvo com sucesso!✅");
 
     setTimeout(() => {
       window.location.href = "index.html";
-      
     }, 3000);
-    
 
     // Salva a venda no localStorage
     const movimentacoes =

@@ -20,7 +20,7 @@
 
     <!-- Título da página -->
     <section class="titulo-formulario">
-      <h2>Sacola</h2>
+      <h2>Carrinho</h2>
     </section>
 
     <!-- Lista de produtos na sacola -->
@@ -42,25 +42,12 @@
       </div>
       <a href="#" class="botao-ver-sacola">Finalizar Venda</a>
     </section>
-    <!-- Modal de Sucesso -->
-    <div class="modal" id="modal-nome" style="display: none">
-      <div class="modal-box">
-        <p>Por favor, informe o nome do cliente.</p>
-        <div class="modal-botoes">
-          <button class="botao-confirmar" onclick="fecharModalNome()">
-            OK
-          </button>
-        </div>
-      </div>
-    </div>
 
-    <div class="modal" id="modal-sucesso" style="display: none">
+    <div class="modal" id="modal-erro" style="display: none">
       <div class="modal-box">
-        <p>Salvo com sucesso ✅</p>
+        <p></p>
         <div class="modal-botoes">
-          <button class="botao-confirmar" onclick="fecharModalSucesso()">
-            OK
-          </button>
+          <button class="botao-confirmar" onclick="fecharModal()">OK</button>
         </div>
       </div>
     </div>

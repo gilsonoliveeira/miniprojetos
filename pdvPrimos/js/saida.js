@@ -5,11 +5,11 @@ const botaoConfirmar = document.getElementById("confirmar");
 
 function validarCampos() {
   if (!nome.value.trim() || !info.value.trim() || !valor.value.trim()) {
-    alert("Por favor, preencha todos os campos.");
+    carregarModal('❌ Por favor, preencha todos os campos!');
     return false;
   }
   if (isNaN(valor.value) || parseFloat(valor.value) <= 0) {
-    alert("O valor deve ser um número positivo.");
+    carregarModal('❌ O valor deve ser um número positivo!')
     return false;
   }
   return true;
@@ -25,7 +25,8 @@ function somarSaidas(movimentacoes) {
 
 window.somarSaidas = somarSaidas; // Expor a função globalmente
 
-botaoConfirmar.addEventListener("click", () => {
+botaoConfirmar.addEventListener("click", (e) => {
+  e.preventDefault();
   let id = Math.floor(Math.random() * 1000);
   if (validarCampos()) {
     const saidas = JSON.parse(localStorage.getItem("movimentacoes")) || [];
@@ -39,7 +40,7 @@ botaoConfirmar.addEventListener("click", () => {
     saidas.push(novaSaida);
     localStorage.setItem("movimentacoes", JSON.stringify(saidas));
 
-    carregarModalSucesso();
+   carregarModal('Salvo com Sucesso!✅')
 
     setTimeout(() => {
       window.location.href = "index.html";

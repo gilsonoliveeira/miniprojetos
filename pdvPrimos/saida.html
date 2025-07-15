@@ -38,14 +38,13 @@
       <label for="valor">Valor (R$)</label>
       <input type="number" id="valor" placeholder="Ex: 30.00" />
 
-      <button id="confirmar">Confirmar</button>
+      <button type="button" id="confirmar">Confirmar</button>
     </section>
-
-    <div class="modal" id="modal-sucesso" style="display: none">
+    <div class="modal" id="modal-erro" style="display: none">
       <div class="modal-box">
-        <p>Salvo com sucesso ✅</p>
+        <p></p>
         <div class="modal-botoes">
-          <button class="botao-confirmar" onclick="fecharModalSucesso()">
+          <button class="botao-confirmar" onclick="fecharModal()">
             OK
           </button>
         </div>

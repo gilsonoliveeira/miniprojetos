@@ -1,28 +1,16 @@
-function carregarModalSucesso() {
-  const modal = document.getElementById("modal-sucesso");
-  if (modal) {
-    modal.style.display = "flex"; 
-  }
+
+function carregarModal(mensagem){
+  const modalErro = document.getElementById('modal-erro');
+  const paragrafo = modalErro.querySelector('p');
+
+  paragrafo.textContent = mensagem;
+  modalErro.style.display = 'flex';
+
 }
 
-window.carregarModalSucesso = carregarModalSucesso;
+window.carregarModal = carregarModal;
 
-function carregarModalNome(){
-  const modal = document.getElementById("modal-nome");
-
-  if(modal) {
-    modal.style.display = "flex";
-  }
+function fecharModal() {
+  const modalErro = document.getElementById('modal-erro');
+  modalErro.style.display = 'none';
 }
-
-function fecharModalSucesso() {
-  const modal = document.getElementById("modal-sucesso");
-  if (modal) modal.style.display = "none";
-}
-
-function fecharModalNome(){
-  const modal = document.getElementById("modal-nome");
-  if (modal) modal.style.display = "none";
-}
-
-window.carregarModalNome = carregarModalNome;

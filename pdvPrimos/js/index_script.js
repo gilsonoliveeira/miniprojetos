@@ -9,6 +9,20 @@ let valorCaixaAtual = 0; // Mantida no escopo global
 window.onload = function () {
   const movimentacoes = JSON.parse(localStorage.getItem("movimentacoes")) || [];
 
+
+  if (movimentacoes.length === 0) {
+    const novaMovimentacao = document.createElement("div");
+    novaMovimentacao.classList.add("movimento");
+    novaMovimentacao.innerHTML = `
+    <strong>Sem movimentações até o momento!</strong>
+  `;
+  novaMovimentacao.style.justifyContent = 'center';
+  novaMovimentacao.style.color = 'red';
+
+  const container = document.querySelector('.movimentacoes');
+  container.appendChild(novaMovimentacao);
+  }
+
   movimentacoes.forEach((mov) => {
     if (mov.tipo === "entrada") {
       adicionarEntrada(mov.nome, mov.descricao, mov.preco);
@@ -109,7 +123,7 @@ function adicionarSaida(nomeProduto, descricao, preco) {
   novaMovimentacao.innerHTML = `
     <div class="barra cor-vermelha"></div>
     <div class="info">
-      <strong>${nomeProduto}</strong>
+      <strong>Cliente: ${nomeProduto}</strong> 
       <p>${descricao}</p>
     </div>
     <span class="valor vermelho">R$${preco.toFixed(2).replace(".", ",")}</span>
@@ -220,7 +234,7 @@ let botoesVisiveis = false;
 if (botaoToggle && botoesFlutuantes) {
   botaoToggle.addEventListener("click", () => {
     botoesVisiveis = !botoesVisiveis;
-    botoesFlutuantes.style.display = botoesVisiveis ? "block" : "none";
+    botoesFlutuantes.style.display = botoesVisiveis ? "flex" : "none";
   });
 }
 
@@ -251,7 +265,7 @@ function abrirModal(numero) {
   if (numero === 3) {
     const valorEl = document.querySelector("#valor-caixa");
     const modalBox = document.querySelector("#modal3 .modal-box");
-    const paragrafo = modalBox.querySelector("p"); 
+    const paragrafo = modalBox.querySelector("p");
 
     if (valorEl && modalBox && paragrafo) {
       const valor = valorEl.textContent;

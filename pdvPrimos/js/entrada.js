@@ -6,11 +6,11 @@ const valorEntrada = document.querySelector(".valor.verde");
 
 function validarEntrada() {
   if (nomeProduto.value === "") {
-    alert("O nome do produto é obrigatório.");
+    carregarModal('❌ Por favor, preencha o nome do produto!')
     return false;
   }
   if (descricao.value === "") {
-    alert("A descrição do produto é obrigatória.");
+    carregarModal("❌ A descrição do produto é obrigatória.")
     return false;
   }
   if (
@@ -18,7 +18,7 @@ function validarEntrada() {
     isNaN(preco.value) ||
     parseFloat(preco.value) <= 0
   ) {
-    alert("O preço do produto deve ser um número positivo.");
+    carregarModal("❌ O preço do produto deve ser um número positivo.")
     return false;
   }
   return true;
@@ -62,7 +62,7 @@ confirmar.addEventListener("click", function (event) {
 
     salvarNoLocalStorage(produto); // <- Aqui salva
 
-    carregarModalSucesso(); // Carrega o modal
+    carregarModal('Salvo com Sucesso!✅')
 
     setTimeout(() => {
       window.location.href = "index.html";

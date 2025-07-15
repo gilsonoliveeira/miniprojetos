@@ -55,7 +55,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const infoDiv = document.createElement("div");
     infoDiv.classList.add("info");
-    infoDiv.innerHTML = `<strong>${produto.nome}</strong><p>Qtd: ${
+    infoDiv.innerHTML = `<strong>${produto.nome}</strong><p>Quantidade: ${
       produto.quantidade
     }<br>R$${parseFloat(produto.valor).toFixed(2)}</p>`;
 

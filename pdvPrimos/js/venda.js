@@ -1,6 +1,4 @@
-
 const produtos = JSON.parse(localStorage.getItem("produtos")) || [];
-
 
 function renderizarProdutos() {
   const produtosPreCarregados = [
@@ -30,16 +28,25 @@ function renderizarProdutos() {
   // Recupera os produtos já salvos ou um array vazio
   let produtosSalvos = JSON.parse(localStorage.getItem("produtos")) || [];
 
+  if (produtosSalvos.length === 0) {
+    carregarModal(
+      "Sem produtos em estoque! Por favor, cadastre um novo produto!"
+    );
+
+    setTimeout(() => {
+      window.location.href = "estoque.html";
+    }, 3000);
+  }
+
   // Verifica se os produtos pré-carregados já existem
   produtosPreCarregados.forEach((pre) => {
     const existe = produtosSalvos.some((p) => p.id === pre.id);
     if (!existe) {
       produtosSalvos.push(pre);
     }
-  })
+  });
 
   localStorage.setItem("produtos", JSON.stringify(produtosSalvos));
-
 
   const produtosContainer = document.querySelector(".produtos-grid");
   produtosContainer.innerHTML = "";
